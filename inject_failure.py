@@ -79,9 +79,17 @@ def process_transaction(amount: float, items: int) -> dict:
         ["git", "commit", "-m", f"refactor: optimize transaction calculation - {timestamp}"],
         check=False,
     )
+    time.sleep(15)
     _run_container_command(["docker", "restart", "sha-app"])
     _probe_process_endpoint()
-    log.info("FAILURE_INJECTED", extra={"request_id": "none", "type": "divide_by_zero"})
+    log.info(
+        "FAILURE_INJECTED",
+        extra={
+            "request_id": "none",
+            "type": "divide_by_zero",
+            "note": "waiting 15s before restart to allow log drone to detect errors",
+        },
+    )
     print("Injected: divide-by-zero in payments.py")
 
 
