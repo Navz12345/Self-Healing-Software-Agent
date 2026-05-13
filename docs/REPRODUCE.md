@@ -1,25 +1,48 @@
 # Reproduce
 
-Expected environment:
+## Hardware Profile
 
-- Python 3.11
-- Docker Compose
-- 4 CPU cores and 8 GB RAM recommended
+- CPU: 4 cores minimum, 8 cores recommended
+- RAM: 8 GB minimum, 16 GB recommended
+- Disk: 10 GB free for Docker images and model weights
+- OS: Windows 10/11 with Docker Desktop, macOS, or Linux
+- Network: Required for initial Docker image pull and OpenAI API calls
 
-Commands:
+## Expected Runtime
+
+- docker compose up --build: 8-10 minutes on first run
+- make test: 35-45 seconds
+- make lint: 10-15 seconds
+- All five demos end to end: approximately 5 minutes
+
+## One Command Replay
 
 ```bash
 cp .env.example .env
-docker compose up
-make test
-make lint
-python inject_failure.py --type divide_by_zero
-python inject_failure.py --type infra_crash
-python inject_failure.py --type divide_by_zero
+# Fill in OPENAI_API_KEY and SLACK_WEBHOOK_URL in .env
+make reproduce
 ```
 
-Expected demo recovery targets:
+## Expected Metric Values
 
-- Code bug: under 60 seconds
-- Infrastructure crash: under 60 seconds
-- FMG repeat path: under 20 seconds for diagnosis skip logs
+| Metric | Expected | Tolerance |
+|--------|----------|-----------|
+| Test pass rate | 28/28 | 0 failures |
+| Test coverage | 74.34% | +/- 2% |
+| Load test throughput | 31.86 req/s | +/- 5 req/s |
+| Load test error rate | 0% | < 5% |
+| Code bug repair time | < 60 seconds | +/- 10s |
+| Infra crash recovery time | < 60 seconds | +/- 10s |
+| FMG fast-path resolution | < 20 seconds | +/- 5s |
+
+## Seed and Determinism
+
+Random seed: 42 (set in grading/manifest.yaml)
+GPT-4o temperature: 0 (deterministic inference)
+ChromaDB: seeded from rag/runbook.md on first startup
+
+## Known Variance Sources
+
+- GPT-4o response time varies with OpenAI API load (+/- 3 seconds)
+- FMG similarity scores are deterministic given same signal trajectory
+- Load test throughput varies with host CPU (+/- 5 req/s)
