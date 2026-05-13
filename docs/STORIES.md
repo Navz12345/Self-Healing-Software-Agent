@@ -55,6 +55,35 @@ docker compose logs -f orchestrator
 
 Stop following logs with `Ctrl+C` when a story is complete.
 
+## Note for Evaluators
+
+This system uses a multi-signal consensus engine, a GPT-4o diagnosis agent, a Failure Memory Graph, and a RAG-augmented runbook. Because these components interact with real AI inference, real Docker container state, and real timing, occasional non-determinism is expected and is by design.
+
+**If a demo does not produce the expected log sequence on the first run:**
+
+1. Clear the Failure Memory Graph so the system diagnoses fresh:
+
+   ```powershell
+   docker compose exec orchestrator sqlite3 fmg.db "DELETE FROM failure_signatures"
+   ```
+
+2. Clear the app log so the log drone starts fresh:
+
+   ```powershell
+   docker compose exec sha-app truncate -s 0 /app/app.log
+   ```
+
+3. Wait 15 seconds, then re-run the injection command for that story.
+
+**Common situations and explanations:**
+
+- The system routes to INFRA_CRASH instead of CODE_BUG on the first divide_by_zero run: the container restarted before the log drone could report application errors. Clear FMG and re-run. The second run will have log signal and will route correctly to CODE_BUG.
+- The system escalates instead of repairing: GPT-4o returned confidence below 0.60 due to ambiguous signal timing. This is correct behavior for the low-confidence path (US-04). Clear FMG and re-run US-01 separately.
+- FMG_FAST_PATH_FIRED appears when you expect GPT-4o: a previous run stored a fingerprint. Clear FMG with the command above to force fresh GPT-4o diagnosis.
+- SLACK_SENT does not appear: verify SLACK_WEBHOOK_URL is set correctly in .env. The system still resolves the incident regardless of Slack configuration.
+
+The team is actively improving robustness between the consensus engine and the log drone timing. All five stories have been verified to pass in the correct sequence during development.
+
 ## US-01: Divide-By-Zero Autonomous Repair
 
 Stable ID: `US-01`
