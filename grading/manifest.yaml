@@ -5,4 +5,4 @@ model_ids:
   embeddings: "all-MiniLM-L6-v2"
 dataset_versions:
   runbook: "local - rag/runbook.md"
-commit_sha: "8abd4cb250f410446646d5f0fa361fce628665c9"
+commit_sha: "5365b78684636acc0cd9570581acb1db7acafef7"
