@@ -9,6 +9,12 @@ from brain.state import IncidentBundle, Signal
 
 @pytest.mark.user_story("US-04")
 def test_us04_low_confidence_escalation(monkeypatch):
+    """
+    Given: sha-app is running and healthy
+    When: inject_failure.py --type ambiguous is executed
+    Then: ESCALATION_REQUIRED fires with confidence below 0.60,
+          SLACK_SENT with resolved=false, no PATCH_PROMOTED
+    """
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
     bundle = IncidentBundle(
         "us04",

@@ -8,6 +8,11 @@ from brain.state import BrainDecision, FailureClass
 
 @pytest.mark.user_story("US-02")
 def test_us02_infrastructure_crash_recovery(monkeypatch):
+    """
+    Given: sha-app is running and healthy
+    When: inject_failure.py --type infra_crash stops the container
+    Then: orchestrator detects INFRA_CRASH, restarts container, confirms health
+    """
     monkeypatch.setattr(devops.time, "sleep", lambda _: None)
     monkeypatch.setattr(
         devops.subprocess,

@@ -6,6 +6,11 @@ from brain.state import BrainDecision, FailureClass
 
 @pytest.mark.user_story("US-01")
 def test_us01_code_bug_autonomous_repair(tmp_path):
+    """
+    Given: sha-app is running and healthy with a clean payments.py
+    When: inject_failure.py --type divide_by_zero is executed
+    Then: orchestrator detects CODE_BUG, promotes a patch, confirms health
+    """
     app_dir = tmp_path / "app"
     app_dir.mkdir()
     (app_dir / "payments.py").write_text(
