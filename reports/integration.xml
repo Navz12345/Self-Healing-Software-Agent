@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="1.338" timestamp="2026-05-13T06:36:26.727455" hostname="2f7238d2eccc"><testcase classname="tests.integration.test_detection_to_consensus" name="test_detection_signal_can_flow_to_consensus" time="0.033" /></testsuite></testsuites>

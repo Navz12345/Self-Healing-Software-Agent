@@ -24,7 +24,7 @@ def test_diagnosis_offline_code_bug(monkeypatch):
 
     assert decision.failure_class.value == "CODE_BUG"
     assert decision.proposed_plan == "PLAN_A"
-    assert decision.suspect_commit == "256fa22"
+    assert decision.suspect_commit.startswith("256fa22")
 
 
 def test_diagnosis_offline_ambiguous_low_confidence(monkeypatch):

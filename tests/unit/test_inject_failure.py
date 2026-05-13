@@ -11,7 +11,7 @@ def test_inject_divide_by_zero_writes_bug(monkeypatch, tmp_path):
     monkeypatch.setattr(
         inject_failure.subprocess,
         "run",
-        lambda *_, **__: subprocess.CompletedProcess(args=[], returncode=0),
+        lambda *_, **__: subprocess.CompletedProcess(args=[], returncode=0, stdout="", stderr=""),
     )
     monkeypatch.setattr(
         inject_failure.requests,
