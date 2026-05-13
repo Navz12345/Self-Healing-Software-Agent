@@ -1,0 +1,42 @@
+[tool.ruff]
+line-length = 100
+exclude = [
+    ".venv",
+    ".venv_phi_test",
+    "src",
+    "configs",
+    "data",
+    "hpc",
+    "prompts",
+    "artifacts",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = ["E501"]
+
+[tool.black]
+line-length = 100
+extend-exclude = "^(src|configs|data|hpc|prompts|artifacts)/"
+force-exclude = "(^|[\\\\/])(src|configs|data|hpc|prompts|artifacts)([\\\\/]|$)"
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+disable_error_code = ["import-untyped"]
+exclude = "^(src|configs|data|hpc|prompts|artifacts|.venv|.venv_phi_test)/"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+addopts = "-p no:cacheprovider"
+markers = [
+    "user_story: marks tests as user story acceptance tests",
+]
+testpaths = ["tests/unit", "tests/integration", "tests/user_stories", "tests/edge"]
+pythonpath = [".", "app", "src"]
+
+[tool.coverage.run]
+omit = [
+    "sandbox_app/*",
+    "tests/test_json_eval.py",
+]

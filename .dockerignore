@@ -1,0 +1,14 @@
+.git
+.venv
+.venv_phi_test
+__pycache__
+.pytest_cache
+.mypy_cache
+.ruff_cache
+reports/coverage_html
+data
+artifacts
+src
+configs
+hpc
+prompts

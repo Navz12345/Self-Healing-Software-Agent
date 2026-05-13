@@ -1,0 +1,8 @@
+python_version: "3.11.9"
+seed: 42
+model_ids:
+  diagnosis: "gpt-4o"
+  embeddings: "all-MiniLM-L6-v2"
+dataset_versions:
+  runbook: "local - rag/runbook.md"
+commit_sha: ""

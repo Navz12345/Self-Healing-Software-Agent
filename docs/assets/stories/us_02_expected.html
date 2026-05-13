@@ -1,0 +1,15 @@
+<!doctype html><meta charset="utf-8"><title>us_02_expected</title><pre>Demo 2 / US-02: Infrastructure crash autonomous recovery
+
+Key orchestrator log evidence from STEP G retry:
+2026-05-08T03:34:18 SIGNAL_PUBLISHED signal_type=error_rate value=1.0
+2026-05-08T03:34:18 CONSENSUS_REACHED service=sha-app vote=1.0
+2026-05-08T03:34:18 FMG_SKIPPED reason=no_application_log_signal
+2026-05-08T03:34:19 DIAGNOSIS_COMPLETE failure_class=INFRA_CRASH confidence=0.88 retrieved_chunks=[ambiguous runbook text, CODE_BUG runbook text]
+2026-05-08T03:34:19 DECISION_ROUTE_DEVOPS plan=PLAN_C
+2026-05-08T03:34:24 CONTAINER_RESTARTED attempts=1
+2026-05-08T03:34:29 HEALTH_CONFIRMED attempt=1
+2026-05-08T03:34:29 SLACK_SENT status_code=0 resolved=true configured=false
+
+Final health check:
+curl http://localhost:8000/health
+{&quot;status&quot;:&quot;ok&quot;,&quot;error_rate&quot;:0.0,&quot;uptime&quot;:77.91207909584045}</pre>

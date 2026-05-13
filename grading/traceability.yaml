@@ -1,0 +1,24 @@
+US-01:
+  spec_section: "3.1 Code Bug Detection and Repair"
+  modules: ["monitoring/log_drone.py", "monitoring/metric_drone.py", "brain/consensus.py", "brain/diagnosis.py", "agents/code_repair.py", "agents/validation.py"]
+  tests: ["tests/user_stories/test_us01.py", "tests/integration/test_detection_to_consensus.py"]
+
+US-02:
+  spec_section: "3.2 Infrastructure Crash Recovery"
+  modules: ["monitoring/metric_drone.py", "brain/consensus.py", "agents/devops.py", "agents/validation.py"]
+  tests: ["tests/user_stories/test_us02.py"]
+
+US-03:
+  spec_section: "3.3 FMG Fast-Path Learning"
+  modules: ["fmg/fmg.py", "orchestrator.py"]
+  tests: ["tests/user_stories/test_us03.py", "tests/unit/test_fmg.py"]
+
+US-04:
+  spec_section: "3.4 Low Confidence Escalation"
+  modules: ["brain/diagnosis.py", "brain/decision.py", "notify/slack.py"]
+  tests: ["tests/user_stories/test_us04.py"]
+
+US-05:
+  spec_section: "3.5 RAG-Augmented Diagnosis"
+  modules: ["rag/embed.py", "rag/retrieve.py", "brain/diagnosis.py"]
+  tests: ["tests/user_stories/test_us05.py", "tests/unit/test_rag.py"]

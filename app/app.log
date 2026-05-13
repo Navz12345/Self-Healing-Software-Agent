@@ -1,0 +1,6 @@
+ERROR ERROR in process_transaction: float division by zero
+ERROR HTTP_REQUEST_FAILED path=/process error=float division by zero
+ERROR ERROR in process_transaction: float division by zero
+ERROR HTTP_REQUEST_FAILED path=/process error=float division by zero
+ERROR ERROR in process_transaction: float division by zero
+ERROR HTTP_REQUEST_FAILED path=/process error=float division by zero

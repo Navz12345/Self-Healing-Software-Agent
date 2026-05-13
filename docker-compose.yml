@@ -1,0 +1,115 @@
+version: "3.9"
+services:
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  sha-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: app
+    container_name: sha-app
+    ports: ["8000:8000"]
+    volumes:
+      - ./app:/app
+      - ./logger.py:/app/logger.py:ro
+    environment:
+      - APP_ENV=production
+      - APP_DB_PATH=/tmp/sha_app.db
+    depends_on:
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  sha-sandbox:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: app
+    container_name: sha-sandbox
+    ports: ["9000:8000"]
+    volumes:
+      - ./sandbox_app:/app
+      - ./logger.py:/app/logger.py:ro
+      - ./tests:/app/tests:ro
+    environment:
+      - APP_ENV=sandbox
+      - APP_DB_PATH=/tmp/sha_sandbox.db
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  orchestrator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: orchestrator
+    volumes:
+      - .:/workspace
+      - /var/run/docker.sock:/var/run/docker.sock
+    user: root
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - SLACK_WEBHOOK_URL=${SLACK_WEBHOOK_URL}
+      - REDIS_URL=redis://redis:6379
+      - APP_URL=http://sha-app:8000
+      - SANDBOX_URL=http://sha-sandbox:8000
+      - FMG_PATH=fmg.db
+    depends_on:
+      sha-app:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    command: ["python", "orchestrator.py"]
+
+  log-drone:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: orchestrator
+    volumes:
+      - .:/workspace
+    environment:
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      redis:
+        condition: service_healthy
+    command:
+      [
+        "python",
+        "-c",
+        "from monitoring.log_drone import LogDrone; LogDrone(log_file='/workspace/app/app.log', service='sha-app', redis_url='redis://redis:6379').run()",
+      ]
+
+  metric-drone:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: orchestrator
+    volumes:
+      - .:/workspace
+    environment:
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      sha-app:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    command:
+      [
+        "python",
+        "-c",
+        "from monitoring.metric_drone import MetricDrone; MetricDrone(health_url='http://sha-app:8000/health', service='sha-app', redis_url='redis://redis:6379').run()",
+      ]

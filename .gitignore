@@ -1,0 +1,14 @@
+.env
+.venv/
+.venv_phi_test/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+.chromadb/
+*.db
+*.db-journal
+reports/coverage_html/
+sandbox_app/__pycache__/

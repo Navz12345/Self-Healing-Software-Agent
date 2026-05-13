@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  sha-sandbox:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      target: app
+    container_name: sha-sandbox
+    ports: ["9000:8000"]
+    volumes:
+      - ../sandbox_app:/app
+      - ../logger.py:/app/logger.py:ro
+      - ../tests:/app/tests:ro
+    environment:
+      - APP_ENV=sandbox
+      - APP_DB_PATH=/tmp/sha_sandbox.db

@@ -17,4 +17,4 @@ def process_transaction(amount: float, items: int) -> dict:
 
     result = amount / items
     log.info("PROCESS_TRANSACTION_COMPLETE", extra={"request_id": "none", "result": result})
-    return {"result": result, "status": "ok"}
+    return {"result": result, "status": "ok", "message": "Transaction processed successfully"}
