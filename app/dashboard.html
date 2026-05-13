@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Self-Healing Agent Dashboard</title>
+  <style>
+    body { font-family: monospace; background: #1a1a2e; color: #eee; padding: 20px; }
+    h1 { color: #00d4ff; }
+    .status { font-size: 2em; padding: 10px; border-radius: 8px; display: inline-block; }
+    .ok { background: #00c851; color: #000; }
+    .error { background: #ff4444; color: #fff; }
+    .metric { background: #16213e; padding: 15px; margin: 10px 0; border-radius: 8px; border-left: 4px solid #00d4ff; }
+    .metric label { color: #00d4ff; font-size: 0.8em; }
+    .metric value { font-size: 1.5em; display: block; margin-top: 5px; }
+    .log-box { background: #0f3460; padding: 15px; height: 400px; overflow-y: auto; border-radius: 8px; margin-top: 20px; }
+    .log-line { font-size: 0.75em; margin: 2px 0; border-bottom: 1px solid #1a1a2e; padding: 3px 0; }
+    .PATCH_PROMOTED { color: #00c851; font-weight: bold; }
+    .HEALTH_CONFIRMED { color: #00d4ff; font-weight: bold; }
+    .CONSENSUS_REACHED { color: #ffbb33; font-weight: bold; }
+    .DIAGNOSIS_COMPLETE { color: #aa66cc; font-weight: bold; }
+    .ESCALATION_REQUIRED { color: #ff4444; font-weight: bold; }
+    .FMG_FAST_PATH_FIRED { color: #00d4ff; font-weight: bold; }
+    .SLACK_SENT { color: #00c851; }
+    button { background: #e94560; color: white; border: none; padding: 10px 20px; 
+             border-radius: 5px; cursor: pointer; margin: 5px; font-size: 1em; }
+    button:hover { background: #c73652; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin: 20px 0; }
+  </style>
+</head>
+<body>
+  <h1>Self-Healing Software Agent</h1>
+  <div id="status" class="status ok">HEALTHY</div>
+  <span style="margin-left:20px; color:#aaa" id="uptime"></span>
+
+  <div class="grid">
+    <div class="metric">
+      <label>ERROR RATE</label>
+      <value id="error_rate">0.0%</value>
+    </div>
+    <div class="metric">
+      <label>UPTIME</label>
+      <value id="uptime_sec">0s</value>
+    </div>
+    <div class="metric">
+      <label>LAST UPDATED</label>
+      <value id="last_updated">--</value>
+    </div>
+  </div>
+
+  <div>
+    <button onclick="injectFailure('divide_by_zero')">Inject Code Bug</button>
+    <button onclick="injectFailure('infra_crash')">Inject Infra Crash</button>
+    <button onclick="injectFailure('ambiguous')">Inject Ambiguous</button>
+  </div>
+
+  <div class="log-box" id="logs">
+    <div style="color:#aaa">Waiting for orchestrator events...</div>
+  </div>
+
+  <script>
+    const logBox = document.getElementById('logs');
+    const seenLogs = new Set();
+    let logLines = [];
+
+    async function pollHealth() {
+      try {
+        const r = await fetch('/health');
+        const d = await r.json();
+        const rate = (d.error_rate * 100).toFixed(1);
+        document.getElementById('error_rate').textContent = rate + '%';
+        document.getElementById('uptime_sec').textContent = Math.round(d.uptime) + 's';
+        document.getElementById('last_updated').textContent = new Date().toLocaleTimeString();
+        const statusEl = document.getElementById('status');
+        if (d.error_rate > 0.1) {
+          statusEl.textContent = 'DEGRADED';
+          statusEl.className = 'status error';
+        } else {
+          statusEl.textContent = 'HEALTHY';
+          statusEl.className = 'status ok';
+        }
+      } catch(e) {
+        document.getElementById('status').textContent = 'UNREACHABLE';
+        document.getElementById('status').className = 'status error';
+      }
+    }
+
+    async function pollLogs() {
+      try {
+        const r = await fetch('/logs');
+        const d = await r.json();
+        let changed = false;
+        for (const line of d.lines) {
+          const key = line.timestamp + line.message + (line.request_id || '');
+          if (!seenLogs.has(key)) {
+            seenLogs.add(key);
+            const div = document.createElement('div');
+            div.className = 'log-line ' + (line.message || '');
+            const msg = line.message || '';
+            const rid = line.request_id ? ' [' + line.request_id.substring(0,8) + ']' : '';
+            const extra = Object.entries(line)
+              .filter(([k]) => !['timestamp','level','module','request_id','message'].includes(k))
+              .map(([k,v]) => k + '=' + JSON.stringify(v))
+              .join(' ');
+            div.textContent = line.timestamp + rid + ' ' + msg + ' ' + extra;
+            logLines.unshift(div);
+            changed = true;
+          }
+        }
+        if (changed) {
+          logBox.innerHTML = '';
+          logLines.slice(0, 100).forEach(d => logBox.appendChild(d));
+        }
+      } catch(e) {}
+    }
+
+    async function injectFailure(type) {
+      try {
+        await fetch('/inject?type=' + type, {method: 'POST'});
+      } catch(e) {
+        alert('Could not inject: ' + e);
+      }
+    }
+
+    setInterval(pollHealth, 2000);
+    setInterval(pollLogs, 2000);
+    pollHealth();
+    pollLogs();
+  </script>
+</body>
+</html>

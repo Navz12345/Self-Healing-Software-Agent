@@ -2,6 +2,7 @@ import time
 from pathlib import Path
 
 from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
 
 from logger import get_logger
 
@@ -96,3 +97,35 @@ def process(amount: float = 100.0, items: int = 5):
 def data():
     log.info("DATA_ENDPOINT_READ", extra={"request_id": "none", "records": 42})
     return {"records": 42}
+
+
+@app.get("/dashboard", response_class=HTMLResponse)
+async def dashboard():
+    with open("/app/dashboard.html", "r") as f:
+        return f.read()
+
+
+@app.get("/logs")
+async def get_logs():
+    import json
+
+    lines = []
+    try:
+        with open("/app/app.log", "r") as f:
+            raw_lines = f.readlines()[-200:]
+        for line in raw_lines:
+            try:
+                lines.append(json.loads(line.strip()))
+            except Exception:
+                pass
+    except Exception:
+        pass
+    return {"lines": lines}
+
+
+@app.post("/inject")
+async def inject(type: str = "divide_by_zero"):
+    import subprocess
+
+    subprocess.Popen(["python", "inject_failure.py", "--type", type], cwd="/workspace")
+    return {"status": "injected", "type": type}
