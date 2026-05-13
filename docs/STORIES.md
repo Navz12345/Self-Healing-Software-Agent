@@ -161,6 +161,8 @@ Then the system reaches consensus, diagnoses `CODE_BUG`, promotes a patch or rev
 
 If the system logs `REVERT_PROMOTED` instead of `PATCH_PROMOTED`, the story still passes because a safe revert is an accepted autonomous repair path. If Slack is not configured, `SLACK_SENT` with `"configured": false` is acceptable for local dry runs, but configured Slack should receive a real message for final evaluation.
 
+Reference screenshot: docs/assets/stories/us_01_expected.png
+
 ## US-02: Infrastructure Crash Recovery
 
 Stable ID: `US-02`
@@ -242,6 +244,8 @@ Then the system diagnoses `INFRA_CRASH`, restarts the container, confirms health
 ### Evaluator Note
 
 The orchestrator container must have Docker CLI access and the Docker socket mounted. If `DOCKER_CLI_UNAVAILABLE` or `RESTART_FAILED` appears, verify Docker Desktop is running and rebuild the orchestrator image.
+
+Reference screenshot: docs/assets/stories/us_02_expected.png
 
 ## US-03: FMG Fast-Path Learning
 
@@ -334,6 +338,8 @@ Then FMG matches the known signal trajectory, GPT-4o is skipped, the system reso
 
 This story depends on FMG state from `US-01`. If `SELECT COUNT(*)` returns `0`, run `US-01` first and wait for `FMG_UPDATED` before retrying `US-03`.
 
+Reference screenshot: docs/assets/stories/us_03_expected.png
+
 ## US-04: Low-Confidence Escalation
 
 Stable ID: `US-04`
@@ -420,6 +426,8 @@ Then the system produces a diagnosis with confidence below `0.60`, logs `ESCALAT
 ### Evaluator Note
 
 Because the log history contains previous stories, evaluate `PATCH_PROMOTED` and `CONTAINER_RESTARTED` by matching the same `request_id` as the ambiguous incident. Historical lines from earlier stories do not fail this story.
+
+Reference screenshot: docs/assets/stories/us_04_expected.png
 
 ## US-05: RAG-Augmented Diagnosis Verification
 
@@ -518,3 +526,5 @@ If `retrieved_chunks` is empty, clear and reseed ChromaDB by deleting `.chromadb
 docker compose exec orchestrator rm -rf /workspace/.chromadb
 docker compose restart orchestrator
 ```
+
+Reference screenshot: docs/assets/stories/us_05_expected.png
