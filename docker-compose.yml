@@ -113,3 +113,32 @@ services:
         "-c",
         "from monitoring.metric_drone import MetricDrone; MetricDrone(health_url='http://sha-app:8000/health', service='sha-app', redis_url='redis://redis:6379').run()",
       ]
+
+  prometheus:
+    image: prom/prometheus:v2.51.0
+    container_name: sha-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    networks:
+      - default
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:10.4.0
+    container_name: sha-grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_AUTH_DISABLE_LOGIN_FORM=true
+    volumes:
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards:ro
+    networks:
+      - default
+    restart: unless-stopped
+    depends_on:
+      - prometheus

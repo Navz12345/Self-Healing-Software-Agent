@@ -1,0 +1,35 @@
+{
+  "title": "Self-Healing Agent",
+  "panels": [
+    {
+      "id": 1,
+      "title": "App Health Status",
+      "type": "stat",
+      "gridPos": {"h": 4, "w": 6, "x": 0, "y": 0},
+      "targets": [
+        {
+          "expr": "1",
+          "legendFormat": "System Online"
+        }
+      ],
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "textMode": "auto"
+      }
+    },
+    {
+      "id": 2,
+      "title": "SHA Agent - Live Demo Dashboard",
+      "type": "text",
+      "gridPos": {"h": 8, "w": 18, "x": 6, "y": 0},
+      "options": {
+        "content": "## Self-Healing Software Agent\n\nThis system autonomously detects, diagnoses, and repairs software failures.\n\n**Run a demo:**\n```\npython inject_failure.py --type divide_by_zero\n```\n\nWatch `docker compose logs -f orchestrator` for:\n- `CONSENSUS_REACHED`\n- `DIAGNOSIS_COMPLETE failure_class=CODE_BUG`\n- `PATCH_PROMOTED`\n- `HEALTH_CONFIRMED`\n- `SLACK_SENT`",
+        "mode": "markdown"
+      }
+    }
+  ],
+  "refresh": "5s",
+  "time": {"from": "now-5m", "to": "now"},
+  "version": 1
+}
