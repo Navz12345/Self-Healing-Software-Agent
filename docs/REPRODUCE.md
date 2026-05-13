@@ -46,3 +46,6 @@ ChromaDB: seeded from rag/runbook.md on first startup
 - GPT-4o response time varies with OpenAI API load (+/- 3 seconds)
 - FMG similarity scores are deterministic given same signal trajectory
 - Load test throughput varies with host CPU (+/- 5 req/s)
+
+## Important: Service Health
+After running `docker compose up -d`, wait for all services to report healthy before running tests. The `make reproduce` target waits 180 seconds automatically. To check manually run: `docker compose ps` and verify all services show `healthy` status.
