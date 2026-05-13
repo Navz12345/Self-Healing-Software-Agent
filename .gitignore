@@ -12,3 +12,6 @@ __pycache__/
 *.db-journal
 reports/coverage_html/
 sandbox_app/__pycache__/
+
+app/app.log
+*.log
