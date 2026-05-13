@@ -49,3 +49,6 @@ make demo
 | Avg response time | 3.43ms | +/- 1ms |
 | FMG fast-path resolution | < 12 seconds | +/- 3s |
 | Demo cost (all 5 stories) | < $0.50 | -- |
+
+## Observability (Work in Progress)
+Prometheus and Grafana configuration files are included in `monitoring/` as a work-in-progress addition. The infrastructure starts with `docker compose up -d prometheus grafana` but full metric scraping and dashboard panels are not yet wired to the application. This is planned for the next iteration after the MVP.
