@@ -1,0 +1,20 @@
+flowchart LR
+    injector["inject_failure.py"] -->|injects failures| app["sha-app container"]
+    app -->|writes errors| applog["app.log"]
+
+    logdrone["log_drone"] -->|reads| applog
+    logdrone -->|publishes log_error_density| redis["Redis tier1.alerts"]
+
+    metricdrone["metric_drone"] -->|polls /health| app
+    metricdrone -->|publishes error_rate| redis
+
+    orchestrator["orchestrator"] -->|subscribes| redis
+    orchestrator --> consensus["ConsensusEngine"]
+    orchestrator --> fmg["FMG SQLite fmg.db"]
+    orchestrator --> chroma["ChromaDB RAG"]
+    orchestrator --> gpt["GPT-4o OpenAI API"]
+    orchestrator --> code_repair["code_repair agent"]
+    code_repair --> sandbox["sandbox_app"]
+    orchestrator --> devops["devops agent"]
+    devops --> docker["Docker socket"]
+    orchestrator --> slack["Slack webhook"]
