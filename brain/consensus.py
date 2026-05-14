@@ -87,7 +87,7 @@ class ConsensusEngine:
         )
         if (
             (distinct_types >= self.min_signal_types and vote >= self.threshold)
-            or infra_signal_count >= 2
+            or infra_signal_count >= 4
             or ambiguous_single_signal
         ):
             log.info(
