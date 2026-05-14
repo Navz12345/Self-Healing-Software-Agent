@@ -1,4 +1,4 @@
-import subprocess
+﻿import subprocess
 from datetime import datetime, timedelta
 from typing import Optional
 
@@ -46,7 +46,7 @@ def extract_suspect_commit(
     for line in lines:
         if line and not line.startswith(" "):
             parts = line.split(" ", 1)
-            if len(parts[0]) == 7:
+            if 7 <= len(parts[0]) <= 8:
                 current_commit_line = line
         if error_file in line and current_commit_line:
             log.info(
@@ -60,3 +60,4 @@ def extract_suspect_commit(
             return current_commit_line
     log.info("SUSPECT_COMMIT_NOT_FOUND", extra={"request_id": request_id, "error_file": error_file})
     return None
+
