@@ -1182,3 +1182,25 @@
     "severity_source": "OSV CVSS v3 vectors queried on 2026-05-12 for pip-audit GHSA findings"
   }
 }
+
+## Mitigation Rationale for Flagged Vulnerabilities
+
+### GitPython High Severity (upload_pack/receive_pack kwarg bypass)
+Mitigation: This vulnerability requires an attacker to control kwargs passed to 
+GitPython's clone/fetch/pull/push methods. In this MVP, GitPython is used only for 
+reading git log output via subprocess calls and read-only repo inspection. No 
+attacker-controlled kwargs are passed to clone_from(), fetch(), pull(), or push(). 
+The attack surface does not exist in this deployment. Upgrading to a patched version 
+is tracked as a future action item.
+
+### GitPython High Severity (config_writer newline injection)
+Mitigation: This vulnerability requires passing attacker-controlled values to 
+config_writer().set_value(). This MVP does not expose any API endpoint that accepts 
+user input for git config values. Not exploitable in this deployment context.
+
+### LangChain/LangGraph High Severity (template injection, msgpack deserialization)
+Mitigation: LangChain prompt templates in this system use hardcoded system prompts 
+and structured JSON output schemas. No user-controlled template strings are accepted. 
+The LangGraph msgpack deserialization issue requires write access to the checkpoint 
+store which is not exposed externally in this MVP. Risk is accepted for this 
+development/staging deployment.

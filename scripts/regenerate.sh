@@ -1,4 +1,4 @@
-#!/bin/bash
+﻿#!/bin/bash
 set -e
 
 echo "=== Spec Regeneration Test ==="
@@ -59,7 +59,7 @@ echo "Running user story tests against current implementation..."
 python -m pytest tests/user_stories/ \
   --ignore=tests/test_json_eval.py \
   -v --tb=short \
-  --junitxml=reports/user_stories.xml \
+  --junitxml=reports/regenerated_user_stories.xml \
   2>&1 | tee /tmp/regen_test_output.txt
 
 PASSED=$(grep -c "PASSED" /tmp/regen_test_output.txt || true)
@@ -82,3 +82,5 @@ else
   echo "ERROR: No tests found or test run failed"
   exit 1
 fi
+
+
