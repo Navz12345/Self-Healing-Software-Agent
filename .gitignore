@@ -15,3 +15,5 @@ sandbox_app/__pycache__/
 
 app/app.log
 *.log
+
+app/app.log
