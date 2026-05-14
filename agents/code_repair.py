@@ -122,7 +122,7 @@ def _run_sandbox_tests(rid: str, sandbox_app_path: Path) -> tuple[bool, str]:
                 "python",
                 "-m",
                 "pytest",
-                "tests/unit/test_payments.py",
+                "test_sandbox.py",
                 "-q",
                 "--tb=short",
             ],
@@ -136,7 +136,7 @@ def _run_sandbox_tests(rid: str, sandbox_app_path: Path) -> tuple[bool, str]:
         log.warning("SANDBOX_DOCKER_UNAVAILABLE", extra={"request_id": rid, "error": str(exc)})
         sdk_passed, sdk_output = _docker_exec(
             "sha-sandbox",
-            ["python", "-m", "pytest", "tests/unit/test_payments.py", "-q", "--tb=short"],
+            ["python", "-m", "pytest", "test_sandbox.py", "-q", "--tb=short"],
             rid,
         )
         if sdk_passed:
