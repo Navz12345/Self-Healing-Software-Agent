@@ -111,15 +111,26 @@ async def get_logs():
 
     lines = []
     try:
-        with open("/app/app.log", "r") as f:
-            raw_lines = f.readlines()[-200:]
-        for line in raw_lines:
+        log_paths = ["/app/app.log", "app/app.log", "app.log"]
+        content = ""
+        for path in log_paths:
             try:
-                lines.append(json.loads(line.strip()))
+                with open(path, "r", encoding="utf-8", errors="ignore") as f:
+                    content = f.read()
+                if content:
+                    break
             except Exception:
-                pass
-    except Exception:
-        pass
+                continue
+        for line in content.splitlines()[-200:]:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                lines.append(json.loads(line))
+            except Exception:
+                lines.append({"message": line, "timestamp": "", "level": "INFO"})
+    except Exception as e:
+        lines.append({"message": "log read error: " + str(e), "timestamp": "", "level": "ERROR"})
     return {"lines": lines}
 
 
