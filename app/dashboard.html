@@ -87,33 +87,29 @@
       try {
         const r = await fetch('/logs');
         const d = await r.json();
-        if (d.lines.length === 0) return;
         let changed = false;
         for (const line of d.lines) {
-          const msg = line.message || JSON.stringify(line);
-          const key = (line.timestamp || '') + msg;
+          const key = line.timestamp + line.message + (line.request_id || '');
           if (!seenLogs.has(key)) {
             seenLogs.add(key);
             const div = document.createElement('div');
-            const msgClass = msg.replace(/[^A-Z_]/g, '');
-            div.className = 'log-line ' + msgClass;
-            const rid = line.request_id ? 
-              ' [' + line.request_id.substring(0,8) + ']' : '';
-            const extras = Object.entries(line)
-              .filter(([k]) => !['timestamp','level',
-                'module','request_id','message'].includes(k))
-              .map(([k,v]) => k+'='+v).join(' ');
-            div.textContent = (line.timestamp||'') + rid + 
-              ' ' + msg + ' ' + extras;
+            div.className = 'log-line ' + (line.message || '');
+            const msg = line.message || '';
+            const rid = line.request_id ? ' [' + line.request_id.substring(0,8) + ']' : '';
+            const extra = Object.entries(line)
+              .filter(([k]) => !['timestamp','level','module','request_id','message'].includes(k))
+              .map(([k,v]) => k + '=' + JSON.stringify(v))
+              .join(' ');
+            div.textContent = line.timestamp + rid + ' ' + msg + ' ' + extra;
             logLines.unshift(div);
             changed = true;
           }
         }
         if (changed) {
           logBox.innerHTML = '';
-          logLines.slice(0,100).forEach(d => logBox.appendChild(d));
+          logLines.slice(0, 100).forEach(d => logBox.appendChild(d));
         }
-      } catch(e) { console.error('log poll error', e); }
+      } catch(e) {}
     }
 
     async function injectFailure(type) {
