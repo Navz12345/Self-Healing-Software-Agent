@@ -1,0 +1,93 @@
+{
+  "graded_at": "2026-05-14T19:20:08.761624+00:00",
+  "total": 99.0,
+  "max": 100,
+  "categories": [
+    {
+      "name": "spec_driven_development",
+      "weight": 25,
+      "score": 25.0,
+      "notes": [
+        "regen pass rate 100% \u00e2\u2030\u00a5 90%; full credit"
+      ]
+    },
+    {
+      "name": "reproducibility_manifest",
+      "weight": 10,
+      "score": 10.0,
+      "notes": [
+        "make reproduce: full credit (metrics within tolerance)"
+      ]
+    },
+    {
+      "name": "build_and_deployment",
+      "weight": 6,
+      "score": 6.0,
+      "notes": [
+        "build ok; 0 undocumented manual step(s); -0 pts"
+      ]
+    },
+    {
+      "name": "verification_and_automated_testing",
+      "weight": 12,
+      "score": 12.0,
+      "notes": [
+        "make test exit 0: +3",
+        "all 3 JUnit reports parseable: +2",
+        "coverage 74% \u00e2\u2030\u00a5 70%: +2",
+        "user story pass rate 100%: +5.0"
+      ]
+    },
+    {
+      "name": "stress_and_robustness",
+      "weight": 6,
+      "score": 6.0,
+      "notes": [
+        "load test \u00e2\u2030\u00a510 req/s, <5% errors: +4",
+        "edge tests green (1/1): +2"
+      ]
+    },
+    {
+      "name": "code_quality_and_responsible_ai",
+      "weight": 6,
+      "score": 5.0,
+      "notes": [
+        "make lint exit 0: +3",
+        "pip-audit flagged Critical/High: +0",
+        "model card all 4 sections: +2"
+      ]
+    },
+    {
+      "name": "logging",
+      "weight": 5,
+      "score": 5.0,
+      "notes": [
+        "trace complete: full credit"
+      ]
+    },
+    {
+      "name": "application_functionality_and_ui",
+      "weight": 20,
+      "score": 20.0,
+      "notes": [
+        "walkthrough 5/5 passed (100%); proportional: 20.0"
+      ]
+    },
+    {
+      "name": "user_documentation",
+      "weight": 6,
+      "score": 6.0,
+      "notes": [
+        "cold-read 3/3, usage 2/2, screenshots 1/1"
+      ]
+    },
+    {
+      "name": "team_contributions",
+      "weight": 4,
+      "score": 4.0,
+      "notes": [
+        "percentage match: pass; breadth: pass"
+      ]
+    }
+  ]
+}
