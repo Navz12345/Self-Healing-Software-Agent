@@ -1,4 +1,4 @@
-# Benchmarks
+﻿# Benchmarks
 
 ## Hardware Profile
 
@@ -38,7 +38,7 @@ make loadtest
 | Edge cases | tests/edge/ | 2/2 |
 | Total | all | 28/28 |
 
-Coverage: 74.34% on business logic modules.
+Coverage: 74.48% on business logic modules.
 
 ## Autonomous Recovery Benchmarks
 
@@ -48,3 +48,4 @@ Coverage: 74.34% on business logic modules.
 | INFRA_CRASH container stop | < 15 seconds | < 30 seconds | < 45 seconds |
 | FMG fast-path repeat | < 5 seconds | < 12 seconds | < 20 seconds |
 | Low confidence escalation | < 15 seconds | N/A (escalated) | < 20 seconds |
+

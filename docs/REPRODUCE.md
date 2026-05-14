@@ -1,4 +1,4 @@
-# Reproduce
+﻿# Reproduce
 
 ## Hardware Profile
 
@@ -28,7 +28,7 @@ make reproduce
 | Metric | Expected | Tolerance |
 |--------|----------|-----------|
 | Test pass rate | 28/28 | 0 failures |
-| Test coverage | 74.34% | +/- 2% |
+| Test coverage | 74.48% | +/- 2% |
 | Load test throughput | 31.86 req/s | +/- 5 req/s |
 | Load test error rate | 0% | < 5% |
 | Code bug repair time | < 60 seconds | +/- 10s |
@@ -49,3 +49,4 @@ ChromaDB: seeded from rag/runbook.md on first startup
 
 ## Important: Service Health
 After running `docker compose up -d`, wait for all services to report healthy before running tests. The `make reproduce` target waits 180 seconds automatically. To check manually run: `docker compose ps` and verify all services show `healthy` status.
+

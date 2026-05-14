@@ -1,4 +1,4 @@
-# Self-Healing Software Agent
+﻿# Self-Healing Software Agent
 
 An MVP autonomous incident-response system for a FastAPI target application. Scout drones publish signals to Redis, the consensus brain creates incidents, diagnosis uses GPT-4o plus RAG and git context, specialist agents repair or restart, and FMG learns repeated failures.
 
@@ -44,7 +44,7 @@ make demo
 |--------|-------|-----------|
 | Load test throughput | 31.86 req/s | +/- 5 req/s |
 | Load test error rate | 0% | < 5% |
-| Test coverage | 74.34% | +/- 2% |
+| Test coverage | 74.48% | +/- 2% |
 | User story pass rate | 5/5 | -- |
 | Avg response time | 3.43ms | +/- 1ms |
 | FMG fast-path resolution | < 12 seconds | +/- 3s |
@@ -52,3 +52,4 @@ make demo
 
 ## Observability (Work in Progress)
 Prometheus and Grafana configuration files are included in `monitoring/` as a work-in-progress addition. The infrastructure starts with `docker compose up -d prometheus grafana` but full metric scraping and dashboard panels are not yet wired to the application. This is planned for the next iteration after the MVP.
+
