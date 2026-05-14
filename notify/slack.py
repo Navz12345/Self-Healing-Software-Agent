@@ -55,7 +55,7 @@ def send_notification(
     }
 
     try:
-        resp = requests.post(webhook, json=message, timeout=5)
+        resp = requests.post(webhook, json=message, timeout=5)  # type: ignore[arg-type]
         log.info(
             "SLACK_SENT",
             extra={

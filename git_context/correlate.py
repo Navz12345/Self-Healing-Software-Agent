@@ -60,4 +60,3 @@ def extract_suspect_commit(
             return current_commit_line
     log.info("SUSPECT_COMMIT_NOT_FOUND", extra={"request_id": request_id, "error_file": error_file})
     return None
-
