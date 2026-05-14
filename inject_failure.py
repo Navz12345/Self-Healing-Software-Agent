@@ -80,6 +80,17 @@ def process_transaction(amount: float, items: int) -> dict:
         check=False,
     )
     time.sleep(15)
+    # Restore clean payments.py so orchestrator patches a complete file
+    subprocess.run(
+        ["git", "checkout", "HEAD~1", "--", "app/payments.py"],
+        check=False,
+        capture_output=True,
+    )
+    subprocess.run(
+        ["git", "checkout", "HEAD~1", "--", "sandbox_app/payments.py"],
+        check=False,
+        capture_output=True,
+    )
     _run_container_command(["docker", "restart", "sha-app"])
     _probe_process_endpoint()
     log.info(
