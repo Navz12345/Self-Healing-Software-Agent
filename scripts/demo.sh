@@ -44,6 +44,7 @@ echo "Failure injected. Waiting for autonomous repair..."
 sleep 50
 curl -s http://localhost:8000/health | python -m json.tool
 show_summary "Demo 1: Code Bug"
+./scripts/restore_payments.sh
 
 echo "[2/3] Demo 2: Infrastructure Crash"
 python inject_failure.py --type infra_crash
@@ -51,6 +52,7 @@ echo "Container stopped. Waiting for DevOps agent to restart..."
 sleep 45
 curl -s http://localhost:8000/health | python -m json.tool
 show_summary "Demo 2: Infrastructure Crash"
+./scripts/restore_payments.sh
 
 echo "[3/3] Demo 3: FMG Fast-Path (run divide-by-zero again)"
 python inject_failure.py --type divide_by_zero
@@ -58,5 +60,6 @@ echo "Same failure injected. Should resolve in under 20s via FMG fast-path..."
 sleep 22
 curl -s http://localhost:8000/health | python -m json.tool
 show_summary "Demo 3: FMG Fast-Path"
+./scripts/restore_payments.sh
 
 echo "=== Demo complete. Check Slack for notifications. ==="
